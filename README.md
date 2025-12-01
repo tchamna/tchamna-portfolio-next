@@ -1,3 +1,12 @@
+Portfolio Next.js site
+
+This repository contains a Next.js portfolio site with Tailwind CSS.
+
+Included files:
+- `Dockerfile` for containerized builds
+- `.gitignore` and `.dockerignore`
+
+See `README-DEPLOY.md` (not included) for deployment notes.
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

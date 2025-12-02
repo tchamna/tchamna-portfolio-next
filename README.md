@@ -6,7 +6,9 @@ Included files:
 - `Dockerfile` for containerized builds
 - `.gitignore` and `.dockerignore`
 
-See `README-DEPLOY.md` (not included) for deployment notes.
+Live site: https://master.d390xh34z1hnzv.amplifyapp.com/
+
+See `README-DEPLOY.md` for deployment notes.
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

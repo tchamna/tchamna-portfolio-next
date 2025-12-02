@@ -54,31 +54,9 @@ export default function Carousel() {
     return () => window.removeEventListener("keydown", onKey);
   }, [itemsToShow.length]);
 
-  // detect and prefer landscape images for the carousel
+  // Show all images in the carousel (no aspect ratio filter)
   useEffect(() => {
-    let cancelled = false;
-    async function detect() {
-      const results = await Promise.all(
-        items.map((p) =>
-          new Promise<{ p: Project; w: number; h: number }>((resolve) => {
-            const img = new window.Image();
-            img.onload = () => resolve({ p, w: img.naturalWidth, h: img.naturalHeight });
-            img.onerror = () => resolve({ p, w: 1, h: 1 });
-            img.src = p.imageUrl;
-          })
-        )
-      );
-
-      if (cancelled) return;
-      const landscapes = results.filter((r) => r.w >= r.h).map((r) => r.p);
-      if (landscapes.length) setItemsToShow(landscapes);
-      else setItemsToShow(items);
-    }
-
-    detect();
-    return () => {
-      cancelled = true;
-    };
+    setItemsToShow(items);
   }, [items]);
 
   // touch swipe support

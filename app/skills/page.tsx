@@ -44,23 +44,23 @@ export default function SkillsPage() {
       </td>
       <td className="px-5 py-4 text-sm text-neutral-700 dark:text-neutral-200">
         <div className="flex flex-wrap gap-2">
-        <span className="skill-chip">Agentic AI</span>
-        <span className="skill-chip">RAG</span>
-        <span className="skill-chip">Vector Databases</span>
-          <span className="skill-chip">LLMs (OpenAI)</span>
-          <span className="skill-chip">LLM Fine-Tuning</span>
-          <span className="skill-chip">Hugging Face</span>
-          <span className="skill-chip">LangChain</span>
-          <span className="skill-chip"> Multimodal AI</span>
-          <span className="skill-chip">FAISS</span>
-          <span className="skill-chip">Transformers</span>
-          
-          <span className="skill-chip">PyTorch</span>
-          <span className="skill-chip">TensorFlow</span>
-          <span className="skill-chip">Scikit-learn</span>
-          <span className="skill-chip">Flan-T5</span>
-          <span className="skill-chip">Cross-Encoders</span>
-          
+        <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Agentic AI</span>
+        <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">RAG</span>
+        <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Vector Databases</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">LLMs (OpenAI)</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">LLM Fine-Tuning</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Hugging Face</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">LangChain</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Multimodal AI</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">FAISS</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Transformers</span>
+
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">PyTorch</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">TensorFlow</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Scikit-learn</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Flan-T5</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Cross-Encoders</span>
+
         </div>
       </td>
     </tr>
@@ -72,16 +72,16 @@ export default function SkillsPage() {
       </td>
       <td className="px-5 py-4 text-sm text-neutral-700 dark:text-neutral-200">
         <div className="flex flex-wrap gap-2">
-          <span className="skill-chip">ETL</span>
-          <span className="skill-chip">Airflow</span>
-          <span className="skill-chip">AWS S3</span>
-          <span className="skill-chip">Azure App Service</span>
-          <span className="skill-chip">Azure Blob Storage</span>
-          <span className="skill-chip">Snowflake</span>
-          <span className="skill-chip">Spark</span>
-          <span className="skill-chip">Docker</span>
-          <span className="skill-chip">GitHub Actions</span>
-          <span className="skill-chip">Terraform</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">ETL</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Airflow</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">AWS S3</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Azure App Service</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Azure Blob Storage</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Snowflake</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Spark</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Docker</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">GitHub Actions</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Terraform</span>
         </div>
       </td>
     </tr>
@@ -93,16 +93,16 @@ export default function SkillsPage() {
       </td>
       <td className="px-5 py-4 text-sm text-neutral-700 dark:text-neutral-200">
         <div className="flex flex-wrap gap-2">
-          <span className="skill-chip">Python (Advanced)</span>
-          <span className="skill-chip">FastAPI</span>
-          <span className="skill-chip">Streamlit</span>
-          <span className="skill-chip">React</span>
-          <span className="skill-chip">Flask</span>
-          <span className="skill-chip">SQL</span>
-          <span className="skill-chip">Pandas</span>
-          <span className="skill-chip">NumPy</span>
-          <span className="skill-chip">Git</span>
-          <span className="skill-chip">Bash</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Python (Advanced)</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">FastAPI</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Streamlit</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">React</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Flask</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">SQL</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Pandas</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">NumPy</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Git</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Bash</span>
         </div>
       </td>
     </tr>
@@ -114,11 +114,11 @@ export default function SkillsPage() {
       </td>
       <td className="px-5 py-4 text-sm text-neutral-700 dark:text-neutral-200">
         <div className="flex flex-wrap gap-2">
-          <span className="skill-chip">Tableau</span>
-          <span className="skill-chip">Power BI</span>
-          <span className="skill-chip">Plotly</span>
-          <span className="skill-chip">Dash</span>
-          <span className="skill-chip">Matplotlib</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Tableau</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Power BI</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Plotly</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Dash</span>
+          <span className="m-1 px-3 py-1 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs rounded-full text-neutral-700 dark:text-neutral-200">Matplotlib</span>
         </div>
       </td>
     </tr>

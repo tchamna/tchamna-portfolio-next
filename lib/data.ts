@@ -26,7 +26,7 @@ export const projects: Project[] = [
         category: ["nlp"],
         repoUrl: "https://github.com/tchamna/african-text-to-speech",
         demoUrl: "https://african-text-to-speech-ehajh7daazdfhzft.canadacentral-01.azurewebsites.net/",
-        imageUrl: "/images/demo_african_text_to_speech.png"
+        imageUrl: "/images/demo_africanvoice.png"
     },
     {
         title: "RAG AI Foundations Demo",

@@ -29,10 +29,16 @@ export default function Hero() {
               <Mail size={14} />
               Available for hire
             </a>
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-neutral-900 dark:text-[#ffffff] drop-shadow-sm">
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-3 text-neutral-900 dark:text-[#ffffff] drop-shadow-sm">
               {profile.hero.heading}
             </h1>
-            <p className="hero-subheading text-xl md:text-2xl text-neutral-900 dark:text-[#ffffff] mb-8 leading-relaxed font-medium">
+
+            <div className="mb-4 text-sm text-neutral-700 dark:text-yellow-400">
+              <div className="font-semibold">{profile.heroMeta?.location}</div>
+              <div className="mt-1 font-bold">{profile.heroMeta?.targetRoles}</div>
+            </div>
+
+            <p className="hero-subheading text-lg md:text-xl text-neutral-900 dark:text-[#ffffff] mb-6 leading-relaxed font-medium">
               {profile.hero.subheading}
             </p>
           </motion.div>
@@ -41,27 +47,34 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 max-w-4xl mx-auto"
           >
+            <a
+              href="/resume.pdf"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:scale-105 whitespace-nowrap shadow-sm"
+              download="resume_tchamna_data_scientist.pdf"
+            >
+              Download Resume
+            </a>
             <Link
               href="#projects"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full transition-all hover:scale-105"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:scale-105 whitespace-nowrap shadow-sm"
             >
               View Projects
               <ArrowRight size={18} />
             </Link>
             <Link
-              href="/about"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-neutral-900 hover:bg-neutral-100 dark:bg-neutral-800 dark:text-white font-medium rounded-full transition-all hover:scale-105"
+              href="/skills"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:scale-105 whitespace-nowrap shadow-sm"
             >
-              About Me
+              Core Skills
               <ArrowRight size={18} />
             </Link>
             <Link
-              href="/skills"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-neutral-900 hover:bg-neutral-100 dark:bg-neutral-800 dark:text-white font-medium rounded-full transition-all hover:scale-105"
+              href="/about"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:scale-105 whitespace-nowrap shadow-sm"
             >
-              Core Skills
+              About Me
               <ArrowRight size={18} />
             </Link>
             <div className="flex items-center gap-4 px-6">

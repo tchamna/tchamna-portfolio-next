@@ -88,5 +88,10 @@ export const profile = {
       "PhD-level modeling for autonomous driving, ADAS analytics and real-time sensor environments"
     ],
     summary: "PhD-trained Data Scientist & Computational Linguist skilled in multilingual NLP, machine learning, and scalable data pipelines. Author of 80+ multilingual books and developer of an automated video content generation platform. Passionate about social justice and preserving endangered languages."
+  },
+  // Additional editable fields for the hero section
+  heroMeta: {
+    location: "Based in New Jersey, USA · Open to physical, remote & hybrid roles",
+    targetRoles: "Target roles: AI Engineer, ML Engineer, MLOps Engineer, Data Engineer",
   }
 };

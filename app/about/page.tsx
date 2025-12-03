@@ -15,7 +15,7 @@ export default function AboutPage() {
             <div className="bg-white dark:bg-neutral-900 rounded-2xl p-8 border border-neutral-200 dark:border-neutral-800 shadow-sm">
               <article className="prose lg:prose-lg dark:prose-invert">
                 <p className="text-lg mb-4">
-                  I'm SHck (Rodrigue) Tchamna, PhD — a pragmatic Data Scientist and AI Engineer who builds production-ready machine learning systems, scalable ETL pipelines, and multilingual NLP solutions. I focus on reliability, reproducibility, and operational readiness when taking models into production.
+                  I'm Shck (Rodrigue) Tchamna, PhD — a pragmatic Data Scientist and AI Engineer who builds production-ready machine learning systems, scalable ETL pipelines, and multilingual NLP solutions. I focus on reliability, reproducibility, and operational readiness when taking models into production.
                 </p>
 
                 <h3>Core Expertise</h3>

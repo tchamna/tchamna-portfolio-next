@@ -33,8 +33,8 @@ export default function Hero() {
               {profile.hero.heading}
             </h1>
 
-            <div className="mb-4 text-sm text-neutral-700 dark:text-yellow-400">
-              <div className="font-semibold">{profile.heroMeta?.location}</div>
+            <div className="mb-4 text-sm text-gray-500 dark:text-yellow-300">
+              {/* <div className="font-semibold">{profile.heroMeta?.location}</div> */}
               <div className="mt-1 font-bold">{profile.heroMeta?.targetRoles}</div>
             </div>
 
@@ -49,13 +49,6 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 max-w-4xl mx-auto"
           >
-            <a
-              href="/resume.pdf"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:scale-105 whitespace-nowrap shadow-sm"
-              download="resume_tchamna_data_scientist.pdf"
-            >
-              Download Resume
-            </a>
             <Link
               href="#projects"
               className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:scale-105 whitespace-nowrap shadow-sm"
@@ -77,6 +70,13 @@ export default function Hero() {
               About Me
               <ArrowRight size={18} />
             </Link>
+            <a
+              href="/resume.pdf"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:scale-105 whitespace-nowrap shadow-sm"
+              download="resume_tchamna_data_scientist.pdf"
+            >
+              Download Resume
+            </a>
             <div className="flex items-center gap-4 px-6">
               <a
                 href={profile.socials.github}

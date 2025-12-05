@@ -69,8 +69,9 @@ jobs:
           ECR_REPOSITORY: portfolio-next
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          # Deploy to EC2
-          ssh -o StrictHostKeyChecking=no -i ec2_key.pem $EC2_USER@$EC2_HOST << EOF
+          # Deploy to EC2 - pass variables explicitly
+          ssh -o StrictHostKeyChecking=no -i ec2_key.pem $EC2_USER@$EC2_HOST \
+            "IMAGE_TAG=$IMAGE_TAG ECR_REGISTRY=$ECR_REGISTRY ECR_REPOSITORY=$ECR_REPOSITORY bash -s" << 'EOF'
             # Create build directory
             mkdir -p ~/portfolio-build
             cd ~/portfolio-build

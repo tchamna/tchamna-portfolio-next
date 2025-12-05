@@ -40,7 +40,7 @@ sudo systemctl reload nginx
 
 echo ""
 echo "=== Next Steps ==="
-echo "1. Add DNS A record: portfolio2.tchamna.com -> 13.220.111.43"
+echo "1. Add DNS A record: portfolio2.tchamna.com -> 18.208.117.82"
 echo "2. Wait for DNS to propagate (5-30 minutes)"
 echo "3. Run this command to enable SSL:"
 echo "   sudo certbot --nginx -d portfolio2.tchamna.com"

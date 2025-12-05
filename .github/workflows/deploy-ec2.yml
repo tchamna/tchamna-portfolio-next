@@ -33,7 +33,7 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
         run: |
           # Create a tarball of the source code
-          tar -czf app-$IMAGE_TAG.tar.gz --exclude=node_modules --exclude=.git --exclude=.next .
+          tar -czf app-$IMAGE_TAG.tar.gz --exclude=node_modules --exclude=.git --exclude=.next --exclude='*.tar.gz' .
           
       - name: Upload source to EC2
         env:

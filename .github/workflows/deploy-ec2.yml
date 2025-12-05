@@ -79,6 +79,9 @@ jobs:
             # Extract source code
             tar -xzf ~/app-$IMAGE_TAG.tar.gz
             
+            # Navigate into the extracted directory
+            cd tchamna-portfolio-next
+            
             # Build Docker image on EC2 (bypasses Docker Hub issues from GitHub Actions)
             docker build -t portfolio-next:$IMAGE_TAG .
             docker tag portfolio-next:$IMAGE_TAG portfolio-next:latest

@@ -5,7 +5,10 @@
 This app runs on **port 3001** to coexist with other apps on the same EC2 instance.
 - Container internal port: 3000 (Next.js default)
 - EC2 external port: 3001 (mapped via Docker)
-- Access URL: http://ec2-13-220-111-43.compute-1.amazonaws.com:3001
+- Direct URL: http://ec2-13-220-111-43.compute-1.amazonaws.com:3001
+- Domain URL: https://portfolio2.tchamna.com (via Nginx reverse proxy)
+- Domain access: https://portfolio2.tchamna.com (via Nginx)
+- Domain access: https://portfolio2.tchamna.com (via Nginx)
 
 ## Required GitHub Secrets
 
@@ -63,7 +66,9 @@ Make sure your EC2 security group allows:
 
 ## Testing Deployment
 
-After setup, visit: **http://ec2-13-220-111-43.compute-1.amazonaws.com:3001**
+After setup:
+- Direct: **http://ec2-13-220-111-43.compute-1.amazonaws.com:3001**
+- With domain (after Nginx setup): **https://portfolio2.tchamna.com**
 
 ## Multiple Apps on Same EC2
 
@@ -74,12 +79,12 @@ Your apps can coexist on different ports:
 
 Each Docker container can map to a different host port.
 
-## Optional: Nginx Reverse Proxy
+## Nginx Reverse Proxy Setup
 
-For production, consider using Nginx to:
-- Serve multiple apps on port 80 with different subdomains/paths
-- Enable HTTPS with SSL certificates
-- Example: `portfolio.yourdomain.com` → port 3001
+To access via https://portfolio2.tchamna.com:
+1. Add DNS A record: `portfolio2.tchamna.com` → `13.220.111.43`
+2. Run the setup script (in `/scripts/setup-nginx-ssl.sh`)
+3. Enable SSL with: `sudo certbot --nginx -d portfolio2.tchamna.com`
 
 ## Troubleshooting
 

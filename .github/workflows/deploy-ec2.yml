@@ -48,8 +48,18 @@ jobs:
           echo "${{ secrets.EC2_SSH_KEY }}" > ec2_key.pem
           chmod 600 ec2_key.pem
           
-          # Upload tarball to EC2
-          scp -o StrictHostKeyChecking=no -i ec2_key.pem app-$IMAGE_TAG.tar.gz ec2-user@ec2-13-220-111-43.compute-1.amazonaws.com:~/
+          # Test SSH connectivity first
+          echo "Testing SSH connection..."
+          ssh -o StrictHostKeyChecking=no -o ConnectTimeout=10 -i ec2_key.pem ec2-user@ec2-13-220-111-43.compute-1.amazonaws.com "echo 'SSH connection successful'"
+          
+          # Upload tarball to EC2 with retry
+          for i in 1 2 3; do
+            echo "Upload attempt $i..."
+            scp -o StrictHostKeyChecking=no -o ConnectTimeout=30 -i ec2_key.pem app-$IMAGE_TAG.tar.gz ec2-user@ec2-13-220-111-43.compute-1.amazonaws.com:~/ && break || {
+              echo "Upload attempt $i failed, retrying in 10 seconds...";
+              sleep 10;
+            }
+          done
 
       - name: Build and deploy on EC2
         env:

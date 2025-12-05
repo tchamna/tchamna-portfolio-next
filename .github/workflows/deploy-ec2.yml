@@ -50,12 +50,12 @@ jobs:
           
           # Test SSH connectivity first
           echo "Testing SSH connection..."
-          ssh -o StrictHostKeyChecking=no -o ConnectTimeout=60 -o ServerAliveInterval=10 -i ec2_key.pem ec2-user@ec2-13-220-111-43.compute-1.amazonaws.com "echo 'SSH connection successful'"
+          ssh -o StrictHostKeyChecking=no -o ConnectTimeout=60 -o ServerAliveInterval=10 -i ec2_key.pem ec2-user@18.208.117.82 "echo 'SSH connection successful'"
           
           # Upload tarball to EC2 with retry
           for i in 1 2 3; do
             echo "Upload attempt $i..."
-            scp -o StrictHostKeyChecking=no -o ConnectTimeout=60 -o ServerAliveInterval=10 -i ec2_key.pem app-$IMAGE_TAG.tar.gz ec2-user@ec2-13-220-111-43.compute-1.amazonaws.com:~/ && break || {
+            scp -o StrictHostKeyChecking=no -o ConnectTimeout=60 -o ServerAliveInterval=10 -i ec2_key.pem app-$IMAGE_TAG.tar.gz ec2-user@18.208.117.82:~/ && break || {
               echo "Upload attempt $i failed, retrying in 15 seconds...";
               sleep 15;
             }
@@ -63,7 +63,7 @@ jobs:
 
       - name: Build and deploy on EC2
         env:
-          EC2_HOST: ec2-13-220-111-43.compute-1.amazonaws.com
+          EC2_HOST: 18.208.117.82
           EC2_USER: ec2-user
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: portfolio-next

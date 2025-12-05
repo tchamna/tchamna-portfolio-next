@@ -32,11 +32,13 @@ jobs:
         env:
           IMAGE_TAG: ${{ github.sha }}
         run: |
+          # Get the current directory name
+          REPO_NAME=$(basename $PWD)
           # Create a tarball of the source code (output to parent dir to avoid self-reference)
           cd ..
-          tar -czf app-$IMAGE_TAG.tar.gz --exclude=portfolio-next/node_modules --exclude=portfolio-next/.git --exclude=portfolio-next/.next portfolio-next/
-          mv app-$IMAGE_TAG.tar.gz portfolio-next/
-          cd portfolio-next
+          tar -czf app-$IMAGE_TAG.tar.gz --exclude=$REPO_NAME/node_modules --exclude=$REPO_NAME/.git --exclude=$REPO_NAME/.next $REPO_NAME/
+          mv app-$IMAGE_TAG.tar.gz $REPO_NAME/
+          cd $REPO_NAME
           
       - name: Upload source to EC2
         env:

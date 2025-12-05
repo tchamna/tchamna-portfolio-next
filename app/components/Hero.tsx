@@ -7,7 +7,7 @@ import { profile } from "@/lib/data";
 
 export default function Hero() {
   return (
-    <section className="relative pt-28 pb-12 md:pt-40 md:pb-20 overflow-hidden">
+    <section className="relative pt-28 pb-4 sm:pb-12 md:pt-40 md:pb-20 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl -z-10 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl mix-blend-multiply animate-blob" />
@@ -43,11 +43,12 @@ export default function Hero() {
             </p>
           </motion.div>
 
+          {/* CTA Buttons - Hidden on mobile, shown on desktop */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 max-w-4xl mx-auto"
+            className="hidden sm:flex flex-wrap items-center justify-center gap-3 max-w-4xl mx-auto"
           >
             <Link
               href="#projects"

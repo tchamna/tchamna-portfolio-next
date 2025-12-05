@@ -21,6 +21,42 @@ export default function Home() {
         {/* Carousel (projects) */}
         <Carousel />
 
+        {/* Mobile CTA Buttons - Only shown on mobile screens, placed after carousel */}
+        <div className="sm:hidden py-6">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col items-center justify-center gap-3 max-w-md mx-auto">
+              <Link
+                href="#projects"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:scale-105 whitespace-nowrap shadow-sm w-full justify-center"
+              >
+                View Projects
+                <ArrowRight size={18} />
+              </Link>
+              <Link
+                href="/skills"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:scale-105 whitespace-nowrap shadow-sm w-full justify-center"
+              >
+                Core Skills
+                <ArrowRight size={18} />
+              </Link>
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:scale-105 whitespace-nowrap shadow-sm w-full justify-center"
+              >
+                About Me
+                <ArrowRight size={18} />
+              </Link>
+              <a
+                href="/resume.pdf"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:scale-105 whitespace-nowrap shadow-sm w-full justify-center"
+                download="resume_tchamna_data_scientist.pdf"
+              >
+                Download Resume
+              </a>
+            </div>
+          </div>
+        </div>
+
         {/* Projects section (filters + grid) moved into home */}
         <ProjectsSection />
 

@@ -34,7 +34,13 @@ jobs:
           ECR_REPOSITORY: portfolio-next
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -t $ECR_REPOSITORY:$IMAGE_TAG .
+          # Retry logic for Docker build to handle transient registry errors
+          for i in 1 2 3; do
+            docker build -t $ECR_REPOSITORY:$IMAGE_TAG . && break || {
+              echo "Build attempt $i failed, retrying...";
+              sleep 10;
+            }
+          done
           docker tag $ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker tag $ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG

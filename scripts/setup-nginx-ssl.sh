@@ -1,5 +1,5 @@
 #!/bin/bash
-# Setup Nginx reverse proxy with SSL for portfolio2.tchamna.com
+# Setup Nginx reverse proxy with SSL for portfolio.tchamna.com
 # Run this on your EC2 instance after Docker is set up
 
 set -e
@@ -13,10 +13,10 @@ echo "=== Installing Certbot for SSL ==="
 sudo yum install certbot python3-certbot-nginx -y
 
 echo "=== Creating Nginx configuration ==="
-sudo tee /etc/nginx/conf.d/portfolio2.conf > /dev/null <<'EOF'
+sudo tee /etc/nginx/conf.d/portfolio.conf > /dev/null <<'EOF'
 server {
     listen 80;
-    server_name portfolio2.tchamna.com;
+    server_name portfolio.tchamna.com;
 
     location / {
         proxy_pass http://localhost:3001;
@@ -40,10 +40,10 @@ sudo systemctl reload nginx
 
 echo ""
 echo "=== Next Steps ==="
-echo "1. Add DNS A record: portfolio2.tchamna.com -> 18.208.117.82"
+echo "1. Add DNS A record: portfolio.tchamna.com -> 18.208.117.82"
 echo "2. Wait for DNS to propagate (5-30 minutes)"
 echo "3. Run this command to enable SSL:"
-echo "   sudo certbot --nginx -d portfolio2.tchamna.com"
+echo "   sudo certbot --nginx -d portfolio.tchamna.com"
 echo ""
 echo "=== Security Group Requirements ==="
 echo "Make sure your EC2 security group allows:"

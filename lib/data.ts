@@ -11,6 +11,16 @@ export interface Project {
 
 export const projects: Project[] = [
     {
+        title: "RAG AI Foundations Demo",
+        description: "Implemented an end-to-end RAG system: data ingestion, chunking, embeddings, vector store, and evaluation (faithfulness/answer relevance) with prompt variants.",
+        tags: ["LLM", "RAG", "Vector DB", "LangChain"],
+        category: ["nlp"],
+        repoUrl: "https://github.com/tchamna/rag_ai-foundations-demo",
+        demoUrl: "https://rag.tchamna.com/",
+        featured: true,
+        imageUrl: "/images/demo_rag.png"
+    },
+    {
         title: "African Object Recognition",
         description: "A computer vision application deployed on Azure designed to recognize and classify distinct African objects, artifacts, and cultural items. Demonstrates end-to-end model deployment and real-time inference capabilities.",
         tags: ["Computer Vision", "Azure", "Deep Learning", "Web App"],
@@ -27,15 +37,6 @@ export const projects: Project[] = [
         repoUrl: "https://github.com/tchamna/african-text-to-speech",
         demoUrl: "https://african-text-to-speech-ehajh7daazdfhzft.canadacentral-01.azurewebsites.net/",
         imageUrl: "/images/demo_africanvoice.png"
-    },
-    {
-        title: "RAG AI Foundations Demo",
-        description: "Implemented an end-to-end RAG system: data ingestion, chunking, embeddings, vector store, and evaluation (faithfulness/answer relevance) with prompt variants.",
-        tags: ["LLM", "RAG", "Vector DB", "LangChain"],
-        category: ["nlp"],
-        repoUrl: "https://github.com/tchamna/rag_ai-foundations-demo",
-        demoUrl: null,
-        imageUrl: "/images/demo_rag.png"
     },
     {
         title: "Resulam Video Generator",

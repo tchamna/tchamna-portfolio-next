@@ -16,6 +16,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Tchamna Shck - AI Engineer & Data Scientist",
   description: "Tchamna Shck — Data Scientist & AI Engineer portfolio",
+  icons: {
+    icon: '/icon_tatascience_tchamna.png',
+    apple: '/icon_tatascience_tchamna.png',
+  },
 };
 
 export default function RootLayout({

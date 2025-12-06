@@ -18,7 +18,7 @@ set -e
 CERTBOT="/usr/bin/certbot"
 NGINX="/usr/sbin/nginx"
 LOG_FILE="/var/log/cert-renewal.log"
-EMAIL="your-email@example.com"  # Optional: for renewal notifications
+EMAIL="tchamna@gmail.com"  # Optional: for renewal notifications
 DOMAINS=("portfolio.tchamna.com" "rag.tchamna.com")  # List all domains needing renewal
 
 # Log function

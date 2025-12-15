@@ -18,7 +18,7 @@ export const projects: Project[] = [
         repoUrl: "https://github.com/tchamna/rag_ai-foundations-demo",
         demoUrl: "https://rag.tchamna.com/",
         featured: true,
-        imageUrl: "/images/demo_rag.png"
+        imageUrl: "/images/demo_rag_20251215.png"
     },
     {
         title: "African Object Recognition",
@@ -58,13 +58,13 @@ export const projects: Project[] = [
         imageUrl: "/images/demo_etl_pipeline.png"
     },
     {
-        title: "Bike Rental Prediction",
-        description: "Delivered a clear ML case study: feature engineering, XGBoost tuning, cross-validation, error analysis, and SHAP-based interpretability for demand forecasting.",
-        tags: ["Classical ML", "XGBoost", "Regression", "Data Analysis"],
-        category: ["classical"],
-        repoUrl: "https://github.com/tchamna/XGBOOST-Bike-Rental-Prediction",
-        demoUrl: null,
-        imageUrl: "/images/demo_bike.png"
+        title: "Resulam Sales Analytics Platform",
+        description: "Interactive multi-page dashboard for analyzing Amazon KDP book sales and royalties, with filtering, exports, and live exchange-rate integration.",
+        tags: ["Python", "Dash", "Plotly", "Pandas"],
+        category: ["mlops"],
+        repoUrl: "https://github.com/tchamna/resulam_royalties",
+        demoUrl: "https://africanlanguagelibrary.tchamna.com/",
+        imageUrl: "/images/demo_resulam_royalties.png"
     }
 ];
 

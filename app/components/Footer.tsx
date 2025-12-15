@@ -31,30 +31,30 @@ export default function Footer() {
             <span className="sr-only">LinkedIn</span>
           </a>
           <a
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${profile.socials.email}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-neutral-500 hover:text-red-600 transition-colors"
+            aria-label="Email"
+          >
+            <Mail size={20} />
+            <span className="sr-only">Email</span>
+          </a>
+          <a
+            href={`tel:${profile.socials.phone}`}
+            className="text-neutral-500 hover:text-green-600 transition-colors"
+            aria-label="Phone"
+          >
+            <Phone size={20} />
+            <span className="sr-only">Phone</span>
+          </a>
+          <a
             href={profile.socials.youtube}
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-500 hover:text-red-600 transition-colors"
+            aria-label="YouTube"
           >
-                      <a
-                        href={`https://mail.google.com/mail/?view=cm&fs=1&to=${profile.socials.email}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-neutral-500 hover:text-red-600 transition-colors"
-                        aria-label="Email"
-                      >
-                        <Mail size={20} />
-                        <span className="sr-only">Email</span>
-                      </a>
-
-                      <a
-                        href={`tel:${profile.socials.phone}`}
-                        className="text-neutral-500 hover:text-green-600 transition-colors"
-                        aria-label="Phone"
-                      >
-                        <Phone size={20} />
-                        <span className="sr-only">Phone</span>
-                      </a>
             <Youtube size={20} />
             <span className="sr-only">YouTube</span>
           </a>

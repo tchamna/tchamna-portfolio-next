@@ -21,6 +21,15 @@ export const projects: Project[] = [
         imageUrl: "/images/demo_rag_20251215.png"
     },
     {
+        title: "Document Intelligence Platform",
+        description: "Document AI web app for extracting, searching, and managing structured information from documents, with an end-to-end pipeline and production UI.",
+        tags: ["Document AI", "NLP", "RAG", "Web App"],
+        category: ["nlp", "mlops"],
+        repoUrl: "https://github.com/tchamna/document-intelligence-platform",
+        demoUrl: "http://idp.tchamna.com/ui",
+        imageUrl: "/images/demo_document_intelligence_platform_20251216.png"
+    },
+    {
         title: "African Object Recognition",
         description: "A computer vision application deployed on Azure designed to recognize and classify distinct African objects, artifacts, and cultural items. Demonstrates end-to-end model deployment and real-time inference capabilities.",
         tags: ["Computer Vision", "Azure", "Deep Learning", "Web App"],

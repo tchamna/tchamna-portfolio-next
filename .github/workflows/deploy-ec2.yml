@@ -73,8 +73,8 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i ec2_key.pem $EC2_USER@$EC2_HOST \
             "IMAGE_TAG=$IMAGE_TAG ECR_REGISTRY=$ECR_REGISTRY ECR_REPOSITORY=$ECR_REPOSITORY bash -s" << 'EOF'
             # Create build directory
-            mkdir -p ~/portfolio-build
-            cd ~/portfolio-build
+            mkdir -p ~/apps/portfolio-build
+            cd ~/apps/portfolio-build
             
             # Extract source code
             tar -xzf ~/app-$IMAGE_TAG.tar.gz

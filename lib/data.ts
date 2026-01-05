@@ -35,7 +35,7 @@ export const projects: Project[] = [
         tags: ["Computer Vision", "Azure", "Deep Learning", "Web App"],
         category: ["cv", "mlops"],
         repoUrl: null, // Private repo
-        demoUrl: "https://african-objects-recognition-app-f7ffeqatg8ecd5hf.canadacentral-01.azurewebsites.net/",
+        demoUrl: "https://african-objects-recognition.tchamna.com/",
         imageUrl: "/images/demo_african_object_recognition2.png",
     },
     {

@@ -27,28 +27,28 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center gap-3 max-w-md mx-auto">
               <Link
                 href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:scale-105 whitespace-nowrap shadow-sm w-full justify-center"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-500 dark:to-blue-600 text-white font-medium rounded-full transition-all hover:shadow-lg hover:shadow-blue-500/50 hover:scale-105 whitespace-nowrap shadow-md w-full justify-center"
               >
                 View Projects
                 <ArrowRight size={18} />
               </Link>
               <Link
                 href="/skills"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:scale-105 whitespace-nowrap shadow-sm w-full justify-center"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-500 dark:to-blue-600 text-white font-medium rounded-full transition-all hover:shadow-lg hover:shadow-blue-500/50 hover:scale-105 whitespace-nowrap shadow-md w-full justify-center"
               >
                 Core Skills
                 <ArrowRight size={18} />
               </Link>
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:scale-105 whitespace-nowrap shadow-sm w-full justify-center"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-500 dark:to-blue-600 text-white font-medium rounded-full transition-all hover:shadow-lg hover:shadow-blue-500/50 hover:scale-105 whitespace-nowrap shadow-md w-full justify-center"
               >
                 About Me
                 <ArrowRight size={18} />
               </Link>
               <a
                 href="/resume.pdf"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:scale-105 whitespace-nowrap shadow-sm w-full justify-center"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-500 dark:to-blue-600 text-white font-medium rounded-full transition-all hover:shadow-lg hover:shadow-blue-500/50 hover:scale-105 whitespace-nowrap shadow-md w-full justify-center"
                 download="resume_tchamna_data_scientist.pdf"
               >
                 Download Resume

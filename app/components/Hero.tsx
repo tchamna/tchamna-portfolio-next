@@ -7,7 +7,7 @@ import { profile } from "@/lib/data";
 
 export default function Hero() {
   return (
-    <section className="relative pt-28 pb-4 sm:pb-12 md:pt-40 md:pb-20 overflow-hidden">
+    <section className="relative pt-16 pb-2 sm:pb-6 md:pt-28 md:pb-12 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl -z-10 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl mix-blend-multiply animate-blob" />
@@ -52,28 +52,28 @@ export default function Hero() {
           >
             <Link
               href="#projects"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:scale-105 whitespace-nowrap shadow-sm"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-gradient-to-r dark:from-blue-600 dark:to-blue-700 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:shadow-lg dark:hover:shadow-blue-500/50 hover:scale-105 whitespace-nowrap shadow-sm"
             >
               View Projects
               <ArrowRight size={18} />
             </Link>
             <Link
               href="/skills"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:scale-105 whitespace-nowrap shadow-sm"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-gradient-to-r dark:from-blue-600 dark:to-blue-700 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:shadow-lg dark:hover:shadow-blue-500/50 hover:scale-105 whitespace-nowrap shadow-sm"
             >
               Core Skills
               <ArrowRight size={18} />
             </Link>
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:scale-105 whitespace-nowrap shadow-sm"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-gradient-to-r dark:from-blue-600 dark:to-blue-700 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:shadow-lg dark:hover:shadow-blue-500/50 hover:scale-105 whitespace-nowrap shadow-sm"
             >
               About Me
               <ArrowRight size={18} />
             </Link>
             <a
               href="/resume.pdf"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-800 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:bg-neutral-700 hover:scale-105 whitespace-nowrap shadow-sm"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-gradient-to-r dark:from-blue-600 dark:to-blue-700 text-white font-medium rounded-full transition-all hover:bg-neutral-800 dark:hover:shadow-lg dark:hover:shadow-blue-500/50 hover:scale-105 whitespace-nowrap shadow-sm"
               download="resume_tchamna_data_scientist.pdf"
             >
               Download Resume

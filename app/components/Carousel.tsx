@@ -94,14 +94,14 @@ export default function Carousel() {
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
-      className="relative w-full max-w-6xl mx-auto px-4 mt-4"
+      className="relative w-full max-w-3xl mx-auto px-4 mt-4"
       ref={containerRef}
     >
-      <div className="rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-lg p-6">
+      <div className="rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-lg p-3">
         <div className="flex items-start justify-between mb-2">
           <div>
-            <h3 className="text-xl font-semibold dark:text-white">Highlights</h3>
-            <p className="text-sm text-neutral-500 dark:text-white">Browse highlighted projects — clicking opens the demo (or code).</p>
+            <h3 className="text-base font-semibold dark:text-white">Highlights</h3>
+            <p className="text-xs text-neutral-500 dark:text-white">Click to view demo or code.</p>
           </div>
           <div className="flex items-center gap-2">
             <button
@@ -123,7 +123,7 @@ export default function Carousel() {
         </div>
 
         <div className="relative w-full">
-          <div className="min-h-[320px] h-[360px] md:h-[520px] w-full rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-800 relative cursor-pointer" onClick={() => handleClickProject(itemsToShow[index])}>
+          <div className="min-h-[180px] h-[220px] md:h-[320px] w-full rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-800 relative cursor-pointer" onClick={() => handleClickProject(itemsToShow[index])}>
             <AnimatePresence mode="wait">
               <motion.div
                 key={(itemsToShow[index] && itemsToShow[index].title) || 'slide'}
@@ -138,9 +138,9 @@ export default function Carousel() {
               </motion.div>
             </AnimatePresence>
 
-            <div className="absolute bottom-3 left-3 right-3 md:left-6 md:right-6 text-white">
+            <div className="absolute bottom-2 left-2 right-2 md:left-4 md:right-4 text-white">
               <div className="flex items-center justify-between gap-4">
-                <h4 className="text-lg font-bold drop-shadow">{itemsToShow[index].title}</h4>
+                <h4 className="text-sm font-bold drop-shadow">{itemsToShow[index].title}</h4>
                 <div className="flex items-center gap-2 text-sm">
                   {itemsToShow[index].demoUrl ? (
                     <span className="inline-flex items-center gap-1 px-2 py-1 bg-black/50 rounded text-white text-xs cursor-pointer">Live Demo <ExternalLink size={12} /></span>
@@ -150,7 +150,7 @@ export default function Carousel() {
                 </div>
               </div>
 
-              <p className="mt-2 text-sm text-white/90 line-clamp-2">{itemsToShow[index].description}</p>
+              <p className="mt-1 text-xs text-white/90 line-clamp-1">{itemsToShow[index].description}</p>
               {/* Accessible status for screen readers */}
               <div className="sr-only" aria-live="polite">{itemsToShow[index].title} — {itemsToShow[index].description}</div>
             </div>

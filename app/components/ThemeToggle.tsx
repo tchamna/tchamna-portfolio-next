@@ -16,9 +16,9 @@ export default function ThemeToggle() {
         return;
       }
 
-      // No explicit stored preference — default to dark mode
-      setIsDark(true);
-      document.documentElement.classList.add('dark');
+      // No explicit stored preference — default to light mode
+      setIsDark(false);
+      document.documentElement.classList.remove('dark');
     } catch (e) {
       // ignore access errors in some sandboxed environments
     }

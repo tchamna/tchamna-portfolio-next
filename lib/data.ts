@@ -83,7 +83,7 @@ export const profile = {
   avatarUrl: "https://avatars.githubusercontent.com/u/6007035?v=4",
   socials: {
     github: "https://github.com/tchamna",
-    linkedin: "https://www.linkedin.com/in/rodrigue-tchamna",
+    linkedin: "https://www.linkedin.com/in/rodrigue-shck-tchamna-phd-b1742411/",
     youtube: "https://www.youtube.com/@Resulam",
     email: "tchamna@gmail.com",
     phone: "+19172080512"

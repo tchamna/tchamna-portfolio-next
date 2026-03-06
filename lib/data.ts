@@ -67,10 +67,19 @@ export const projects: Project[] = [
         imageUrl: "/images/demo_etl_pipeline.png"
     },
     {
+        title: "Organ Donor Analytics Dashboard",
+        description: "End-to-end analytics platform for organ donation operations: synthetic data generation, medallion-architecture ETL pipeline, and interactive multi-page dashboards covering daily operations, hospital benchmarking, organ type mix, blood type analysis, rejection root cause, and data quality.",
+        tags: ["Data Engineering", "Dash", "Plotly", "ETL", "Python"],
+        category: ["mlops", "dashboard"],
+        repoUrl: null,
+        demoUrl: "https://organ-donor-analytics.tchamna.com/",
+        imageUrl: "/images/demo_organ_donor_analytics.png"
+    },
+    {
         title: "Resulam Sales Analytics Platform",
         description: "Interactive multi-page dashboard for analyzing Amazon KDP book sales and royalties, with filtering, exports, and live exchange-rate integration.",
         tags: ["Python", "Dash", "Plotly", "Pandas"],
-        category: ["mlops"],
+        category: ["mlops", "dashboard"],
         repoUrl: "https://github.com/tchamna/resulam_royalties",
         demoUrl: "https://africanlanguagelibrary.tchamna.com/",
         imageUrl: "/images/demo_resulam_royalties.png"

@@ -10,6 +10,7 @@ const categories = [
   { id: "nlp", label: "NLP & LLMs" },
   { id: "cv", label: "Computer Vision" },
   { id: "mlops", label: "MLOps & Engineering" },
+  { id: "dashboard", label: "Dashboards" },
   { id: "classical", label: "Classical ML" },
 ];
 

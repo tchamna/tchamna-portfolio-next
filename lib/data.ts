@@ -44,7 +44,7 @@ export const projects: Project[] = [
         tags: ["NLP", "Speech Synthesis", "Python", "Deep Learning"],
         category: ["nlp"],
         repoUrl: "https://github.com/tchamna/african-text-to-speech",
-        demoUrl: "https://african-text-to-speech-ehajh7daazdfhzft.canadacentral-01.azurewebsites.net/",
+        demoUrl: "https://african-text-to-speech-v2-dacth3aedpeyfwbb.canadacentral-01.azurewebsites.net/",
         imageUrl: "/images/demo_africanvoice.png"
     },
     {

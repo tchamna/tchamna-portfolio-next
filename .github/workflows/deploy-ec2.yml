@@ -9,7 +9,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     env:
-      EC2_HOST: 13.220.111.43
+      EC2_HOST: 18.208.117.82
       EC2_USER: ec2-user
     steps:
       - name: Checkout

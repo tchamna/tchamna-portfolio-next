@@ -63,6 +63,29 @@ jobs:
 
           echo "instance_id=$INSTANCE_ID" >> "$GITHUB_OUTPUT"
 
+      - name: Wait for EC2 to be available in SSM
+        env:
+          INSTANCE_ID: ${{ steps.resolve-instance.outputs.instance_id }}
+        run: |
+          for i in $(seq 1 24); do
+            PING_STATUS=$(aws ssm describe-instance-information \
+              --region "$AWS_REGION" \
+              --filters "Key=InstanceIds,Values=$INSTANCE_ID" \
+              --query "InstanceInformationList[0].PingStatus" \
+              --output text 2>/dev/null || true)
+
+            if [ "$PING_STATUS" = "Online" ]; then
+              echo "Instance $INSTANCE_ID is online in SSM."
+              exit 0
+            fi
+
+            echo "SSM not ready for $INSTANCE_ID yet (status: ${PING_STATUS:-none}). Waiting 10s..."
+            sleep 10
+          done
+
+          echo "Instance $INSTANCE_ID did not become available in SSM." >&2
+          exit 1
+
       - name: Deploy on EC2 via SSM
         env:
           INSTANCE_ID: ${{ steps.resolve-instance.outputs.instance_id }}

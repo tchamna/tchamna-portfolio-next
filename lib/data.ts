@@ -54,7 +54,6 @@ export const projects: Project[] = [
         category: ["cv", "nlp"],
         repoUrl: "https://github.com/tchamna/resulam-video-generator-pipeline",
         demoUrl: null,
-        
         imageUrl: "/images/demo_resulam_video_generation_pipeline.jpg"
     },
     {
@@ -97,20 +96,20 @@ export const profile = {
     email: "tchamna@gmail.com",
     phone: "+19172080512"
   },
-  bio: "Specializing in Machine Learning, NLP, Computer Vision, and MLOps. Building scalable AI solutions for real-world problems, with a focus on under-resourced languages and African context.",
+  bio: "Interdisciplinary educator, AI engineer, and data scientist with a PhD in Mechanical and Aerospace Engineering and 10+ years of experience building data-driven systems, predictive models, and AI solutions for real-world problems.",
   hero: {
     heading: "Shck Tchamna, PhD",
-    subheading: "AI Engineer & Data Scientist — building cloud-first, production-ready ML systems, scalable ETL pipelines, and multilingual NLP solutions at scale.",
+    subheading: "AI Engineer, Data Scientist, and interdisciplinary educator building production-ready ML systems, scalable data pipelines, and multilingual AI tools for real-world impact.",
     points: [
-      "10+ years building cloud-based data workflows, ETL, and ML systems for high-volume sensor data",
-      "Expertise: Python, AWS, Kubernetes, microservices, distributed data processing",
-      "PhD-level modeling for autonomous driving, ADAS analytics and real-time sensor environments"
+      "10+ years building automated data pipelines, advanced analytics, and predictive models across research and production settings",
+      "Experienced across machine learning, NLP, computer vision, MLOps, and project-based STEM education",
+      "Founder and mission-driven leader advancing low-resource language revitalization and inclusive access to knowledge"
     ],
-    summary: "PhD-trained Data Scientist & Computational Linguist skilled in multilingual NLP, machine learning, and scalable data pipelines. Author of 80+ multilingual books and developer of an automated video content generation platform. Passionate about social justice and preserving endangered languages."
+    summary: "I am an interdisciplinary educator, AI engineer, and data scientist with a PhD in Mechanical and Aerospace Engineering and over a decade of experience building data-driven solutions. My work spans automated pipelines, advanced analytics, predictive modeling, multilingual AI, and mission-driven products that expand access to knowledge for under-resourced communities. I am especially motivated by work that improves people's lives, creates measurable social impact, and brings compassion into the design of technology."
   },
   // Additional editable fields for the hero section
   heroMeta: {
-    location: "Based in New Jersey, USA · Open to physical, remote & hybrid roles",
+    location: "Based in New Jersey, USA - Open to physical, remote & hybrid roles",
     targetRoles: "Target roles: AI Engineer, ML Engineer, MLOps Engineer, Data Engineer",
   }
 };

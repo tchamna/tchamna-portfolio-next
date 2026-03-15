@@ -9,8 +9,12 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     env:
+      AWS_REGION: us-east-1
       EC2_HOST: 18.208.117.82
-      EC2_USER: ec2-user
+      ECR_REPOSITORY: portfolio-next
+      CONTAINER_NAME: portfolio-next
+      HOST_PORT: 3001
+      CONTAINER_PORT: 3000
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -20,92 +24,107 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+          aws-region: ${{ env.AWS_REGION }}
 
       - name: Create ECR repository if it doesn't exist
         run: |
-          aws ecr describe-repositories --repository-names portfolio-next --region us-east-1 || \
-          aws ecr create-repository --repository-name portfolio-next --region us-east-1
+          aws ecr describe-repositories --repository-names "$ECR_REPOSITORY" --region "$AWS_REGION" || \
+          aws ecr create-repository --repository-name "$ECR_REPOSITORY" --region "$AWS_REGION"
 
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Package source code
-        env:
-          IMAGE_TAG: ${{ github.sha }}
-        run: |
-          # Get the current directory name
-          REPO_NAME=$(basename $PWD)
-          # Create a tarball of the source code (output to parent dir to avoid self-reference)
-          cd ..
-          tar -czf app-$IMAGE_TAG.tar.gz --exclude=$REPO_NAME/node_modules --exclude=$REPO_NAME/.git --exclude=$REPO_NAME/.next $REPO_NAME/
-          mv app-$IMAGE_TAG.tar.gz $REPO_NAME/
-          cd $REPO_NAME
-          
-      - name: Upload source to EC2
-        env:
-          IMAGE_TAG: ${{ github.sha }}
-        run: |
-          # Save SSH key
-          echo "${{ secrets.EC2_SSH_KEY }}" > ec2_key.pem
-          chmod 600 ec2_key.pem
-          
-          # Test SSH connectivity first
-          echo "Testing SSH connection..."
-          ssh -o StrictHostKeyChecking=no -o ConnectTimeout=60 -o ServerAliveInterval=10 -i ec2_key.pem $EC2_USER@$EC2_HOST "echo 'SSH connection successful'"
-          
-          # Upload tarball to EC2 with retry
-          for i in 1 2 3; do
-            echo "Upload attempt $i..."
-            scp -o StrictHostKeyChecking=no -o ConnectTimeout=60 -o ServerAliveInterval=10 -i ec2_key.pem app-$IMAGE_TAG.tar.gz $EC2_USER@$EC2_HOST:~/ && break || {
-              echo "Upload attempt $i failed, retrying in 15 seconds...";
-              sleep 15;
-            }
-          done
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
-      - name: Build and deploy on EC2
+      - name: Build and push Docker image
         env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: portfolio-next
           IMAGE_TAG: ${{ github.sha }}
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         run: |
-          # Deploy to EC2 - pass variables explicitly
-          ssh -o StrictHostKeyChecking=no -i ec2_key.pem $EC2_USER@$EC2_HOST \
-            "IMAGE_TAG=$IMAGE_TAG ECR_REGISTRY=$ECR_REGISTRY ECR_REPOSITORY=$ECR_REPOSITORY bash -s" << 'EOF'
-            # Create build directory
-            mkdir -p ~/apps/portfolio-build
-            cd ~/apps/portfolio-build
-            
-            # Extract source code
-            tar -xzf ~/app-$IMAGE_TAG.tar.gz
-            
-            # Navigate into the extracted directory
-            cd tchamna-portfolio-next
-            
-            # Build Docker image on EC2 (bypasses Docker Hub issues from GitHub Actions)
-            docker build -t portfolio-next:$IMAGE_TAG .
-            docker tag portfolio-next:$IMAGE_TAG portfolio-next:latest
-            
-            # Login to ECR and push
-            aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $ECR_REGISTRY
-            docker tag portfolio-next:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-            docker tag portfolio-next:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
-            docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-            docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
-            
-            # Stop and remove old container
-            docker stop portfolio-next || true
-            docker rm portfolio-next || true
-            
-            # Run new container on port 3001
-            docker run -d --name portfolio-next -p 3001:3000 --restart unless-stopped portfolio-next:latest
-            
-            # Clean up
-            cd ~
-            rm -f app-$IMAGE_TAG.tar.gz
-            docker image prune -af
+          docker build -t "$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" -t "$ECR_REGISTRY/$ECR_REPOSITORY:latest" .
+          docker push "$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+          docker push "$ECR_REGISTRY/$ECR_REPOSITORY:latest"
+
+      - name: Resolve EC2 instance ID
+        id: resolve-instance
+        run: |
+          INSTANCE_ID=$(aws ec2 describe-instances \
+            --region "$AWS_REGION" \
+            --filters "Name=ip-address,Values=$EC2_HOST" "Name=instance-state-name,Values=running" \
+            --query "Reservations[0].Instances[0].InstanceId" \
+            --output text)
+
+          if [ -z "$INSTANCE_ID" ] || [ "$INSTANCE_ID" = "None" ]; then
+            echo "Could not resolve a running EC2 instance for public IP $EC2_HOST" >&2
+            exit 1
+          fi
+
+          echo "instance_id=$INSTANCE_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy on EC2 via SSM
+        env:
+          INSTANCE_ID: ${{ steps.resolve-instance.outputs.instance_id }}
+          IMAGE_TAG: ${{ github.sha }}
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        run: |
+          cat > ssm-commands.json <<EOF
+          {
+            "commands": [
+              "set -e",
+              "aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ECR_REGISTRY}",
+              "docker pull ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}",
+              "docker stop ${CONTAINER_NAME} || true",
+              "docker rm ${CONTAINER_NAME} || true",
+              "docker run -d --name ${CONTAINER_NAME} -p ${HOST_PORT}:${CONTAINER_PORT} --restart unless-stopped ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}",
+              "docker image prune -af || true"
+            ]
+          }
           EOF
-          
-          # Clean up SSH key
-          rm ec2_key.pem
+
+          COMMAND_ID=$(aws ssm send-command \
+            --region "$AWS_REGION" \
+            --instance-ids "$INSTANCE_ID" \
+            --document-name "AWS-RunShellScript" \
+            --comment "Deploy portfolio-next ${IMAGE_TAG}" \
+            --parameters file://ssm-commands.json \
+            --query "Command.CommandId" \
+            --output text)
+
+          aws ssm wait command-executed \
+            --region "$AWS_REGION" \
+            --command-id "$COMMAND_ID" \
+            --instance-id "$INSTANCE_ID"
+
+          STATUS=$(aws ssm get-command-invocation \
+            --region "$AWS_REGION" \
+            --command-id "$COMMAND_ID" \
+            --instance-id "$INSTANCE_ID" \
+            --query "Status" \
+            --output text)
+
+          STDOUT=$(aws ssm get-command-invocation \
+            --region "$AWS_REGION" \
+            --command-id "$COMMAND_ID" \
+            --instance-id "$INSTANCE_ID" \
+            --query "StandardOutputContent" \
+            --output text)
+
+          STDERR=$(aws ssm get-command-invocation \
+            --region "$AWS_REGION" \
+            --command-id "$COMMAND_ID" \
+            --instance-id "$INSTANCE_ID" \
+            --query "StandardErrorContent" \
+            --output text)
+
+          echo "$STDOUT"
+
+          if [ -n "$STDERR" ] && [ "$STDERR" != "None" ]; then
+            echo "$STDERR" >&2
+          fi
+
+          if [ "$STATUS" != "Success" ]; then
+            echo "SSM deployment failed with status: $STATUS" >&2
+            exit 1
+          fi

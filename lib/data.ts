@@ -110,6 +110,6 @@ export const profile = {
   // Additional editable fields for the hero section
   heroMeta: {
     location: "Based in New Jersey, USA - Open to physical, remote & hybrid roles",
-    targetRoles: "Target roles: AI Engineer, ML Engineer, MLOps Engineer, Data Engineer",
+    targetRoles: "Target roles: AI Engineer, ML Engineer, MLOps Engineer, Data Engineer, Math/Physics/Technology Teacher",
   }
 };

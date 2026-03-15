@@ -22,6 +22,10 @@ export default function AboutPage() {
                   My work spans automated data pipelines, advanced analytics, predictive modeling, multilingual AI, and applied machine learning. I enjoy turning complex ideas into practical systems that are reliable, useful, and grounded in real user needs.
                 </p>
 
+                <p>
+                  As an educator, I especially enjoy teaching mathematics, physics, and technology in a practical way, connecting theory to real problems, real tools, and real decisions rather than treating those subjects as abstract ideas alone.
+                </p>
+
                 <h3>Core Expertise</h3>
                 <ul>
                   <li><strong>AI Engineering and Applied ML:</strong> predictive models, machine learning systems, and production-ready AI applications.</li>

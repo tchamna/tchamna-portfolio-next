@@ -75,6 +75,15 @@ export const projects: Project[] = [
         imageUrl: "/images/demo_organ_donor_analytics.png"
     },
     {
+        title: "Document Processing Pipeline",
+        description: "Web-based document processing platform for batch editing Word documents: drag-and-drop upload, CSV-driven find-and-replace dictionaries, auto-repair of corrupted .docx files, and configurable formatting fixes (punctuation, guillemets, capitalization, smart formatting). Originals are preserved.",
+        tags: ["Document Processing", "NLP", "Python", "Web App"],
+        category: ["nlp", "mlops"],
+        repoUrl: null,
+        demoUrl: "https://document-processing.tchamna.com/",
+        imageUrl: "/images/demo_document_processing.png"
+    },
+    {
         title: "Resulam Sales Analytics Platform",
         description: "Interactive multi-page dashboard for analyzing Amazon KDP book sales and royalties, with filtering, exports, and live exchange-rate integration.",
         tags: ["Python", "Dash", "Plotly", "Pandas"],

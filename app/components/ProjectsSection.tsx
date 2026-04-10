@@ -7,11 +7,10 @@ import { clsx } from "clsx";
 
 const categories = [
   { id: "all", label: "All Projects" },
-  { id: "nlp", label: "NLP & LLMs" },
+  { id: "nlp", label: "GenAI" },
   { id: "cv", label: "Computer Vision" },
-  { id: "mlops", label: "MLOps & Engineering" },
+  { id: "fullstack", label: "Full Stack" },
   { id: "dashboard", label: "Dashboards" },
-  { id: "classical", label: "Classical ML" },
 ];
 
 const ITEMS_PER_PAGE = 6;

@@ -1,0 +1,53 @@
+name: Monitor Portfolio
+
+on:
+  # GitHub Actions cron is UTC. 10:00 UTC is 6:00 AM America/Toronto during
+  # daylight saving time; when Toronto returns to standard time this runs at
+  # 5:00 AM local unless the cron is changed to 11:00 UTC.
+  schedule:
+    - cron: "0 10 * * *"
+  workflow_dispatch:
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      AWS_REGION: us-east-1
+      EC2_INSTANCE_ID: i-06e1cb3f5231e7804
+      PRODUCTION_URL: https://portfolio.tchamna.com/
+      RESTART_COMMAND: docker restart portfolio-next
+      SMTP_HOST: ${{ secrets.SMTP_HOST }}
+      SMTP_PORT: ${{ secrets.SMTP_PORT }}
+      SMTP_SECURE: ${{ secrets.SMTP_SECURE }}
+      SMTP_USER: ${{ secrets.SMTP_USER }}
+      SMTP_PASS: ${{ secrets.SMTP_PASS }}
+      SMTP_FROM: ${{ secrets.SMTP_FROM }}
+      SMTP_TO: ${{ secrets.SMTP_TO }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.11"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Run monitor
+        run: npm run monitor
+
+      - name: Send crash email if workflow failed
+        if: failure()
+        run: npm run monitor:crash-email

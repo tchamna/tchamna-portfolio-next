@@ -458,6 +458,7 @@ async function sendReport(report) {
     to: config.smtp.to,
     subject: `${subjectPrefix}: portfolio-next`,
     text: formatReport(report),
+    html: formatHtmlReport(report),
   });
 }
 
@@ -525,6 +526,220 @@ function formatReport(report) {
   }
 
   return lines.join("\n");
+}
+
+function formatHtmlReport(report) {
+  const utc = report.startedAt.toISOString();
+  const local = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Toronto",
+    dateStyle: "full",
+    timeStyle: "long",
+  }).format(report.startedAt);
+  const overallOk = !report.crashed && report.checks.every((check) => check.ok);
+  const title = report.crashed
+    ? "Portfolio Monitor Crashed"
+    : overallOk
+      ? "Portfolio Monitor OK"
+      : "Portfolio Monitor Warning";
+  const runtime = report.runtime ? parseRuntimeStats(report.runtime.stdout || "") : {};
+
+  return `<!doctype html>
+<html>
+  <body style="margin:0;padding:0;background:#f5f7fb;font-family:Arial,Helvetica,sans-serif;color:#172033;">
+    <div style="max-width:980px;margin:0 auto;padding:24px;">
+      <div style="background:#ffffff;border:1px solid #dce3ee;border-radius:8px;overflow:hidden;">
+        <div style="padding:20px 24px;background:${overallOk ? "#0f766e" : "#b45309"};color:#ffffff;">
+          <h1 style="margin:0;font-size:22px;line-height:1.3;">${escapeHtml(title)}</h1>
+          <p style="margin:8px 0 0;font-size:14px;">${escapeHtml(config.productionUrl)} · ${escapeHtml(config.instanceId)} · ${escapeHtml(config.region)}</p>
+        </div>
+
+        <div style="padding:20px 24px;">
+          ${section("Run Time", keyValueTable([
+            ["UTC", utc],
+            ["America/Toronto", local],
+          ]))}
+
+          ${section("Health Checks", renderTable(
+            ["Status", "Check", "Details"],
+            report.checks.map((check) => [
+              statusBadge(check.ok ? "PASS" : "FAIL", check.ok),
+              check.name,
+              check.detail,
+            ]),
+            { rawColumns: [0] }
+          ))}
+
+          ${section("Actions", report.actions.length
+            ? renderTable(["Action"], report.actions.map((action) => [action]))
+            : muted("No actions recorded.")
+          )}
+
+          ${runtimeSection(report.runtime, runtime)}
+
+          ${report.ssm ? section("Remediation Command", keyValueTable([
+            ["Command ID", report.ssm.commandId],
+            ["Status", report.ssm.status],
+            ["Stdout", pre(report.ssm.stdout || "(empty)")],
+            ["Stderr", pre(report.ssm.stderr || "(empty)")],
+          ], [2, 3])) : ""}
+
+          ${report.postRemediationHealth ? section("Post-Remediation Health", renderTable(
+            ["Status", "HTTP", "Response Time", "Attempts"],
+            [[
+              statusBadge(report.postRemediationHealth.ok ? "PASS" : "FAIL", report.postRemediationHealth.ok),
+              report.postRemediationHealth.status || "no status",
+              `${report.postRemediationHealth.responseTimeMs || "n/a"}ms`,
+              report.postRemediationHealth.attempts,
+            ]],
+            { rawColumns: [0] }
+          )) : ""}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>`;
+}
+
+function runtimeSection(runtimeReport, runtime) {
+  if (!runtimeReport) {
+    return "";
+  }
+
+  const parts = [
+    keyValueTable([
+      ["Status", runtimeReport.ok ? statusBadge(runtimeReport.status, true) : statusBadge(runtimeReport.status, false)],
+      ["Command ID", runtimeReport.commandId || "n/a"],
+    ], [0]),
+  ];
+
+  parts.push(renderRuntimeTable("Host Memory", runtime["Host memory"]));
+  parts.push(renderRuntimeTable("Host Disk", runtime["Host disk"]));
+  parts.push(renderRuntimeTable("Docker Containers", runtime["Docker containers"]));
+  parts.push(renderRuntimeTable("Docker Container Stats", runtime["Docker container stats"]));
+  parts.push(renderRuntimeTable("Docker Disk Usage", runtime["Docker disk usage"]));
+
+  if (runtimeReport.stderr) {
+    parts.push(`<h3 style="margin:18px 0 8px;font-size:15px;">Errors</h3>${pre(runtimeReport.stderr)}`);
+  }
+
+  return section("EC2 Runtime Stats", parts.join(""));
+}
+
+function renderRuntimeTable(title, rawLines) {
+  if (!rawLines || rawLines.length === 0) {
+    return "";
+  }
+
+  const parsed = parseTableLines(rawLines);
+  return `<h3 style="margin:18px 0 8px;font-size:15px;">${escapeHtml(title)}</h3>${
+    parsed.rows.length > 0
+      ? renderTable(parsed.headers, parsed.rows)
+      : pre(rawLines.join("\n"))
+  }`;
+}
+
+function parseRuntimeStats(stdout) {
+  const sections = {};
+  let current = null;
+
+  for (const line of stdout.split(/\r?\n/)) {
+    const match = line.match(/^== (.+) ==\s*$/);
+    if (match) {
+      current = match[1];
+      sections[current] = [];
+      continue;
+    }
+
+    if (current && line.trim()) {
+      sections[current].push(line);
+    }
+  }
+
+  return sections;
+}
+
+function parseTableLines(lines) {
+  const split = (line) => line.trim().split(/\t+|\s{2,}/).filter(Boolean);
+  const headers = split(lines[0] || "");
+  const rows = lines.slice(1).map(split).filter((row) => row.length > 0);
+
+  if (headers.length === 0 || rows.length === 0) {
+    return { headers: [], rows: [] };
+  }
+
+  return { headers, rows };
+}
+
+function section(title, body) {
+  return `<section style="margin:0 0 24px;">
+    <h2 style="font-size:18px;line-height:1.3;margin:0 0 10px;color:#172033;">${escapeHtml(title)}</h2>
+    ${body}
+  </section>`;
+}
+
+function renderTable(headers, rows, options = {}) {
+  const rawColumns = options.rawColumns || [];
+  const headerHtml = headers
+    .map((header) => `<th style="${thStyle()}">${escapeHtml(String(header))}</th>`)
+    .join("");
+  const rowHtml = rows
+    .map((row) => `<tr>${headers.map((_, index) => {
+      const value = row[index] ?? "";
+      return `<td style="${tdStyle()}">${rawColumns.includes(index) ? value : escapeHtml(String(value))}</td>`;
+    }).join("")}</tr>`)
+    .join("");
+
+  return `<div style="overflow-x:auto;">
+    <table style="border-collapse:collapse;width:100%;font-size:13px;margin:0 0 8px;">
+      <thead><tr>${headerHtml}</tr></thead>
+      <tbody>${rowHtml}</tbody>
+    </table>
+  </div>`;
+}
+
+function keyValueTable(rows, rawValueRows = []) {
+  const body = rows
+    .map(([key, value], index) => `<tr>
+      <td style="${tdStyle()}">${escapeHtml(String(key))}</td>
+      <td style="${tdStyle()}">${rawValueRows.includes(index) ? value : escapeHtml(String(value))}</td>
+    </tr>`)
+    .join("");
+
+  return `<div style="overflow-x:auto;">
+    <table style="border-collapse:collapse;width:100%;font-size:13px;margin:0 0 8px;">
+      <thead><tr><th style="${thStyle()}">Field</th><th style="${thStyle()}">Value</th></tr></thead>
+      <tbody>${body}</tbody>
+    </table>
+  </div>`;
+}
+
+function statusBadge(label, ok) {
+  return `<span style="display:inline-block;border-radius:999px;padding:3px 9px;font-size:12px;font-weight:700;background:${ok ? "#dcfce7" : "#fee2e2"};color:${ok ? "#166534" : "#991b1b"};">${escapeHtml(String(label))}</span>`;
+}
+
+function pre(value) {
+  return `<pre style="white-space:pre-wrap;word-break:break-word;background:#f8fafc;border:1px solid #dce3ee;border-radius:6px;padding:10px;margin:0;font-size:12px;line-height:1.45;">${escapeHtml(String(value))}</pre>`;
+}
+
+function muted(value) {
+  return `<p style="margin:0;color:#64748b;font-size:13px;">${escapeHtml(value)}</p>`;
+}
+
+function thStyle() {
+  return "text-align:left;padding:8px 10px;border:1px solid #dce3ee;background:#eef2f7;color:#334155;font-weight:700;vertical-align:top;";
+}
+
+function tdStyle() {
+  return "padding:8px 10px;border:1px solid #dce3ee;color:#172033;vertical-align:top;";
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
 }
 
 function requiredEnv(name) {

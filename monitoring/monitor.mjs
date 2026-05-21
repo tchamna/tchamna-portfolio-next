@@ -46,6 +46,7 @@ async function main() {
     checks: [],
     actions: [],
     ssm: null,
+    runtime: null,
     postRemediationHealth: null,
     crashed: false,
   };
@@ -91,6 +92,8 @@ async function main() {
       data: metrics,
     });
 
+    report.runtime = await collectRuntimeStats(instance.state);
+
     await remediateIfAllowed({ report, health, instance, statuses });
   } catch (error) {
     report.crashed = true;
@@ -114,7 +117,7 @@ async function remediateIfAllowed({ report, health, instance, statuses }) {
       return;
     }
 
-    report.ssm = await runSsmCommand(config.restartCommand);
+    report.ssm = await runSsmCommand(config.restartCommand, "portfolio-next monitoring remediation", 2048);
     report.actions.push(`SSM restart finished with status: ${report.ssm.status}`);
 
     await sleep(30000);
@@ -333,13 +336,67 @@ async function checkSsmReachability(instanceId) {
   };
 }
 
-async function runSsmCommand(command) {
+async function collectRuntimeStats(instanceState) {
+  if (instanceState !== "running") {
+    return {
+      ok: false,
+      status: "Skipped",
+      stdout: "",
+      stderr: `Instance state is ${instanceState}; runtime stats require a running instance.`,
+    };
+  }
+
+  const reachable = await checkSsmReachability(config.instanceId);
+  if (!reachable.ok) {
+    return {
+      ok: false,
+      status: "Skipped",
+      stdout: "",
+      stderr: `Instance is not SSM Online (${reachable.pingStatus || "unknown"}).`,
+    };
+  }
+
+  const command = [
+    "set -e",
+    "echo '== Host memory ==' ",
+    "free -h || true",
+    "echo ''",
+    "echo '== Host disk ==' ",
+    "df -h / || true",
+    "echo ''",
+    "echo '== Docker containers ==' ",
+    "docker ps -a --format 'table {{.Names}}\\t{{.Image}}\\t{{.Status}}\\t{{.Ports}}' || true",
+    "echo ''",
+    "echo '== Docker container stats ==' ",
+    "docker stats --no-stream --all --format 'table {{.Name}}\\t{{.CPUPerc}}\\t{{.MemUsage}}\\t{{.MemPerc}}\\t{{.NetIO}}\\t{{.BlockIO}}\\t{{.PIDs}}' || true",
+    "echo ''",
+    "echo '== Docker disk usage ==' ",
+    "docker system df || true",
+  ].join("\n");
+
+  try {
+    const result = await runSsmCommand(command, "portfolio-next runtime stats", 12000);
+    return {
+      ok: result.status === "Success",
+      ...result,
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      status: "Failed",
+      stdout: "",
+      stderr: errorMessage(error),
+    };
+  }
+}
+
+async function runSsmCommand(command, comment, outputLimit) {
   const send = await ssm.send(
     new SendCommandCommand({
       InstanceIds: [config.instanceId],
       DocumentName: "AWS-RunShellScript",
       Parameters: { commands: [command] },
-      Comment: "portfolio-next monitoring remediation",
+      Comment: comment,
     })
   );
   const commandId = send.Command?.CommandId;
@@ -377,8 +434,8 @@ async function runSsmCommand(command) {
   return {
     commandId,
     status: invocation.Status,
-    stdout: truncate(invocation.StandardOutputContent || "", 2048),
-    stderr: truncate(invocation.StandardErrorContent || "", 2048),
+    stdout: truncate(invocation.StandardOutputContent || "", outputLimit),
+    stderr: truncate(invocation.StandardErrorContent || "", outputLimit),
   };
 }
 
@@ -428,6 +485,21 @@ function formatReport(report) {
   lines.push("", "Actions:");
   for (const action of report.actions) {
     lines.push(`- ${action}`);
+  }
+
+  if (report.runtime) {
+    lines.push(
+      "",
+      "EC2 runtime stats:",
+      `- Status: ${report.runtime.status}`,
+      report.runtime.commandId ? `- Command ID: ${report.runtime.commandId}` : "",
+      "- Output:",
+      report.runtime.stdout || "(empty)"
+    );
+
+    if (report.runtime.stderr) {
+      lines.push("- Errors:", report.runtime.stderr);
+    }
   }
 
   if (report.ssm) {

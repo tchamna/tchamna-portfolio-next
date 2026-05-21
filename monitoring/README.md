@@ -18,12 +18,16 @@ Daily monitoring for the EC2-hosted `portfolio-next` site. The agent runs from G
 3. EC2 instance state; expects `running`.
 4. EC2 system and instance status checks; expects both to be `ok`.
 5. CloudWatch metrics for the last hour; flags average CPU over 85% or any status check failures.
+6. EC2 runtime stats through SSM, including host memory, root disk usage, all Docker containers, per-container CPU, memory usage, memory percent, network I/O, block I/O, PIDs, and Docker disk usage.
+
+The runtime stats command is read-only. It uses `free -h`, `df -h /`, `docker ps -a`, `docker stats --no-stream --all`, and `docker system df`.
 
 ## Safe Remediation
 
 - If HTTP fails while the instance is running and EC2 status checks are ok, the agent sends an SSM `AWS-RunShellScript` command using `RESTART_COMMAND`.
 - If the instance is stopped, the agent starts only `EC2_INSTANCE_ID`.
 - If the instance is running but EC2 status checks are failing, the agent reports the problem and does not reboot.
+- Runtime stats are always reported when the instance is running and SSM is online, but they do not trigger broad remediation for unrelated apps.
 - It never terminates instances, modifies security groups, changes IAM, touches AMIs, touches volumes, or acts on other instances.
 
 ## GitHub Secrets

@@ -13,6 +13,7 @@ const categories = [
   { id: "dashboard", label: "Dashboards" },
   { id: "ai-agents", label: "AI Agents" },
   { id: "resulam", label: "Resulam" },
+  { id: "fine-tuning", label: "Fine Tuning" },
 ];
 
 const ITEMS_PER_PAGE = 6;

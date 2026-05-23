@@ -83,6 +83,26 @@ export const projects: Project[] = [
     imageUrl: "/images/demo_resulam_video_generation_pipeline.jpg",
   },
   {
+    title: "NuFi Translator",
+    description:
+      "Fine-tuned NLLB-200-distilled-600M for French-to-NuFi neural machine translation. Features beam search with configurable width, Clafrica normalization, random sentence sampling, and a V2 model comparison tab.",
+    tags: ["NLP", "Fine-Tuning", "Machine Translation", "HuggingFace"],
+    category: ["nlp", "fine-tuning", "resulam"],
+    repoUrl: null,
+    demoUrl: "https://huggingface.co/spaces/tchamna/nufi-translation",
+    imageUrl: "/images/demo_nufi_translator.png",
+  },
+  {
+    title: "NuFi Speech Tools",
+    description:
+      "Fine-tuned speech models for the NuFi language: a Whisper-based ASR that transcribes uploaded or recorded audio, and a Meta MMS Text-to-Speech engine that synthesizes Nufi speech from text input.",
+    tags: ["NLP", "Fine-Tuning", "Speech Recognition", "Whisper"],
+    category: ["nlp", "fine-tuning", "resulam"],
+    repoUrl: null,
+    demoUrl: "https://huggingface.co/spaces/tchamna/nufi-asr",
+    imageUrl: "/images/demo_nufi_asr.png",
+  },
+  {
     title: "Financial Trading ETL",
     description:
       "Built a production-ready ETL for market data: ingestion, validation, feature generation (lags/indicators), partitioned storage, and monitoring.",

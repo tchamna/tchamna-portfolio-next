@@ -15,7 +15,7 @@ export const projects: Project[] = [
     description:
       "Implemented an end-to-end RAG system: data ingestion, chunking, embeddings, vector store, and evaluation (faithfulness/answer relevance) with prompt variants.",
     tags: ["LLM", "RAG", "Vector DB", "LangChain"],
-    category: ["nlp"],
+    category: ["nlp", "resulam"],
     repoUrl: "https://github.com/tchamna/rag_ai-foundations-demo",
     demoUrl: "https://rag.tchamna.com/",
     featured: true,
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     description:
       "A computer vision application deployed on Azure designed to recognize and classify distinct African objects, artifacts, and cultural items. Demonstrates end-to-end model deployment and real-time inference capabilities.",
     tags: ["Computer Vision", "Azure", "Deep Learning", "Web App"],
-    category: ["cv", "fullstack"],
+    category: ["cv", "fullstack", "resulam"],
     repoUrl: null,
     demoUrl: "https://african-objects-recognition.tchamna.com/",
     imageUrl: "/images/demo_african_object_recognition2.png",
@@ -46,7 +46,7 @@ export const projects: Project[] = [
     description:
       "Built a multilingual TTS pipeline for African languages: curated phoneme/tokenization, trained/fine-tuned neural TTS models, and evaluated naturalness/intelligibility.",
     tags: ["NLP", "Speech Synthesis", "Python", "Deep Learning"],
-    category: ["nlp"],
+    category: ["nlp", "resulam"],
     repoUrl: "https://github.com/tchamna/african-text-to-speech",
     demoUrl:
       "https://african-text-to-speech-v2-dacth3aedpeyfwbb.canadacentral-01.azurewebsites.net/",
@@ -57,17 +57,27 @@ export const projects: Project[] = [
     description:
       "Full-stack web app for searching and generating NuFi verb conjugations across multiple tenses, with automatic translations, downloadable Word output, and integrated linguistic reference content based on a published grammar resource.",
     tags: ["Full Stack", "Web App", "NLP", "Linguistics"],
-    category: ["fullstack"],
+    category: ["fullstack", "resulam"],
     repoUrl: null,
     demoUrl: "https://nufi-conjugator.tchamna.com/",
     imageUrl: "/images/demo_nufi_conjugator.png",
+  },
+  {
+    title: "African Polyglot",
+    description:
+      "Multilingual dictionary and phrasebook for NuFi and other African languages, with FTS5-powered search, tone/diacritic-insensitive matching, English query support via real-time French translation fallback, audio playback, and curated S3 image integration.",
+    tags: ["Next.js", "NLP", "Linguistics", "SQLite", "AWS S3"],
+    category: ["fullstack", "nlp", "ai-agents", "resulam"],
+    repoUrl: null,
+    demoUrl: "https://www.african-polyglot.com/",
+    imageUrl: "/images/demo_african_polyglot.png",
   },
   {
     title: "Resulam Video Generator",
     description:
       "Designed a modular text-to-video pipeline: script generation, TTS, frame generation, shot assembly, and post-processing (ffmpeg), with reproducible configs.",
     tags: ["Generative AI", "Multimodal", "Video Processing", "Python"],
-    category: ["cv", "fullstack"],
+    category: ["cv", "fullstack", "resulam"],
     repoUrl: "https://github.com/tchamna/resulam-video-generator-pipeline",
     demoUrl: null,
     imageUrl: "/images/demo_resulam_video_generation_pipeline.jpg",
@@ -97,7 +107,7 @@ export const projects: Project[] = [
     description:
       "Web-based document processing platform for batch editing Word documents: drag-and-drop upload, CSV-driven find-and-replace dictionaries, auto-repair of corrupted .docx files, and configurable formatting fixes (punctuation, guillemets, capitalization, smart formatting). Originals are preserved.",
     tags: ["Document Processing", "NLP", "Python", "Web App"],
-    category: ["fullstack"],
+    category: ["fullstack", "ai-agents", "resulam"],
     repoUrl: null,
     demoUrl: "https://document-processing.tchamna.com/",
     imageUrl: "/images/demo_document_processing.png",
@@ -107,7 +117,7 @@ export const projects: Project[] = [
     description:
       "Interactive dispatch simulator for an electric self-driving taxi fleet with best-slot routing, pre-scheduled trips, live timetable visualization, and algorithm comparisons for dispatch strategies.",
     tags: ["Web App", "Simulation", "Optimization", "Dispatch"],
-    category: ["fullstack"],
+    category: ["fullstack", "ai-agents"],
     repoUrl: null,
     demoUrl: "https://self-driving-taxi-apbzbyh7h4g9aaf3.canadacentral-01.azurewebsites.net/",
     imageUrl: "/images/demo_self_driving_taxi.png",
@@ -117,7 +127,7 @@ export const projects: Project[] = [
     description:
       "Interactive multi-page dashboard for analyzing Amazon KDP book sales and royalties, with filtering, exports, and live exchange-rate integration.",
     tags: ["Python", "Dash", "Plotly", "Pandas"],
-    category: ["dashboard"],
+    category: ["dashboard", "ai-agents", "resulam"],
     repoUrl: "https://github.com/tchamna/resulam_royalties",
     demoUrl: "https://africanlanguagelibrary.tchamna.com/",
     imageUrl: "/images/demo_resulam_royalties.png",

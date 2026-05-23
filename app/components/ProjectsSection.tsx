@@ -11,6 +11,8 @@ const categories = [
   { id: "cv", label: "Computer Vision" },
   { id: "fullstack", label: "Full Stack" },
   { id: "dashboard", label: "Dashboards" },
+  { id: "ai-agents", label: "AI Agents" },
+  { id: "resulam", label: "Resulam" },
 ];
 
 const ITEMS_PER_PAGE = 6;

@@ -16,14 +16,32 @@ export default function ProjectCard({ project, index }: { project: Project; inde
       className="group bg-white dark:bg-neutral-900 rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800 hover:border-blue-500/50 hover:shadow-lg transition-all duration-300 flex flex-col h-full"
     >
       <div className="relative h-48 w-full overflow-hidden bg-neutral-100 dark:bg-neutral-800">
-        <Image
-          src={project.imageUrl}
-          alt={project.title}
-          fill
-          unoptimized={typeof project.imageUrl === 'string' && project.imageUrl.startsWith('http')}
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
+        {project.demoUrl || project.repoUrl ? (
+          <Link
+            href={(project.demoUrl ?? project.repoUrl)!}
+            target="_blank"
+            className="block w-full h-full cursor-pointer"
+            tabIndex={-1}
+          >
+            <Image
+              src={project.imageUrl}
+              alt={project.title}
+              fill
+              unoptimized={typeof project.imageUrl === 'string' && project.imageUrl.startsWith('http')}
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          </Link>
+        ) : (
+          <Image
+            src={project.imageUrl}
+            alt={project.title}
+            fill
+            unoptimized={typeof project.imageUrl === 'string' && project.imageUrl.startsWith('http')}
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        )}
       </div>
 
       <div className="p-6 flex flex-col flex-grow">

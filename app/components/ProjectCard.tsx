@@ -28,7 +28,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
               src={project.imageUrl}
               alt={project.title}
               fill
-              unoptimized={typeof project.imageUrl === 'string' && project.imageUrl.startsWith('http')}
+              unoptimized
               className="object-cover transition-transform duration-500 group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
@@ -38,7 +38,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
             src={project.imageUrl}
             alt={project.title}
             fill
-            unoptimized={typeof project.imageUrl === 'string' && project.imageUrl.startsWith('http')}
+            unoptimized
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />

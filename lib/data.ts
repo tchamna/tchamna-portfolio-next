@@ -28,7 +28,7 @@ export const projects: Project[] = [
     tags: ["Document AI", "NLP", "RAG", "Web App"],
     category: ["fullstack", "mlops"],
     repoUrl: "https://github.com/tchamna/document-intelligence-platform",
-    demoUrl: "http://idp.tchamna.com/ui",
+    demoUrl: "https://idp.tchamna.com/ui",
     imageUrl: "/images/demo_document_intelligence_platform_20251216.png",
   },
   {

@@ -31,9 +31,7 @@ export default function Footer() {
             <span className="sr-only">LinkedIn</span>
           </a>
           <a
-            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${profile.socials.email}`}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`mailto:${profile.socials.email}`}
             className="text-neutral-500 hover:text-red-600 transition-colors"
             aria-label="Email"
           >

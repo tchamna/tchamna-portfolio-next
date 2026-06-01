@@ -20,6 +20,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
           <Link
             href={(project.demoUrl ?? project.repoUrl)!}
             target="_blank"
+            rel="noopener noreferrer"
             className="block w-full h-full cursor-pointer"
             tabIndex={-1}
           >
@@ -69,6 +70,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
             <Link
               href={project.demoUrl}
               target="_blank"
+              rel="noopener noreferrer"
               className="flex-1 inline-flex justify-center items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors"
             >
               <ExternalLink size={16} />
@@ -79,6 +81,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
             <Link
               href={project.repoUrl}
               target="_blank"
+              rel="noopener noreferrer"
               className={`flex-1 inline-flex justify-center items-center gap-2 px-4 py-2 border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-sm font-medium rounded-lg transition-colors ${!project.demoUrl ? 'w-full' : ''}`}
             >
               <Github size={16} />

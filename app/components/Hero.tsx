@@ -22,7 +22,7 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
           >
             <a
-              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${profile.socials.email}`}
+              href={`mailto:${profile.socials.email}`}
               className="inline-flex items-center px-3 py-1 mb-6 text-sm font-medium text-white bg-blue-600/90 hover:bg-blue-700 rounded-full transition-colors gap-2"
               aria-label="Email Rodrigue Tchamna"
             >
@@ -82,13 +82,14 @@ export default function Hero() {
               <a
                 href={profile.socials.github}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors"
                 aria-label="GitHub"
               >
                 <Github size={24} />
               </a>
               <a
-                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${profile.socials.email}`}
+                href={`mailto:${profile.socials.email}`}
                 className="text-neutral-500 hover:text-red-600 transition-colors"
                 aria-label="Email"
               >
@@ -104,6 +105,7 @@ export default function Hero() {
               <a
                 href={profile.socials.linkedin}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-neutral-500 hover:text-blue-600 transition-colors"
               >
                 <Linkedin size={24} />
@@ -111,6 +113,7 @@ export default function Hero() {
               <a
                 href={profile.socials.youtube}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-neutral-500 hover:text-red-600 transition-colors"
               >
                 <Youtube size={24} />

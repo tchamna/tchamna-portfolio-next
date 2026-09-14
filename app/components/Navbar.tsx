@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 import { clsx } from "clsx";
+import { isProjectCategoryPath } from "@/lib/categories";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -23,7 +24,9 @@ export default function Navbar() {
 
         <nav className="flex items-center gap-6">
           {navItems.map((item) => {
-            const isActive = pathname === item.path;
+            const isActive =
+              pathname === item.path ||
+              (item.path === "/" && isProjectCategoryPath(pathname));
             return (
               <Link
                 key={item.path}

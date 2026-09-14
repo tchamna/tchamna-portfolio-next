@@ -1,27 +1,39 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import ProjectCard from "./ProjectCard";
 import { projects } from "@/lib/data";
+import {
+  getCategoryIdFromSlug,
+  getCategoryPath,
+  projectCategories,
+  type ProjectCategoryId,
+} from "@/lib/categories";
 import { clsx } from "clsx";
-
-const categories = [
-  { id: "all", label: "All Projects" },
-  { id: "nlp", label: "GenAI" },
-  { id: "cv", label: "Computer Vision" },
-  { id: "fullstack", label: "Full Stack" },
-  { id: "dashboard", label: "Dashboards" },
-  { id: "ai-agents", label: "AI Agents" },
-  { id: "fine-tuning", label: "Fine Tuning" },
-  { id: "resulam", label: "Resulam" },
-];
 
 const ITEMS_PER_PAGE = 6;
 
-export default function ProjectsSection() {
-  const [activeFilter, setActiveFilter] = useState("all");
+function getCategoryIdFromPathname(pathname: string): ProjectCategoryId {
+  if (pathname === "/") return "all";
+  const slug = pathname.replace(/^\//, "");
+  return getCategoryIdFromSlug(slug) ?? "all";
+}
+
+interface ProjectsSectionProps {
+  initialCategoryId?: ProjectCategoryId;
+}
+
+export default function ProjectsSection({ initialCategoryId = "all" }: ProjectsSectionProps) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const [activeFilter, setActiveFilter] = useState(initialCategoryId);
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    setActiveFilter(getCategoryIdFromPathname(pathname));
+  }, [pathname]);
 
   const filteredProjects = activeFilter === "all"
     ? projects
@@ -29,12 +41,10 @@ export default function ProjectsSection() {
 
   const visibleProjects = filteredProjects.slice(0, visibleCount);
 
-  // Reset visible count when filter changes
   useEffect(() => {
     setVisibleCount(ITEMS_PER_PAGE);
   }, [activeFilter]);
 
-  // Infinite scroll observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -49,6 +59,13 @@ export default function ProjectsSection() {
     return () => observer.disconnect();
   }, [filteredProjects.length, visibleCount]);
 
+  const handleFilterClick = (categoryId: ProjectCategoryId) => {
+    const nextPath = getCategoryPath(categoryId);
+    if (nextPath !== pathname) {
+      router.push(nextPath, { scroll: false });
+    }
+  };
+
   return (
     <section id="projects" className="py-20 bg-transparent">
       <div className="container mx-auto px-4">
@@ -58,10 +75,10 @@ export default function ProjectsSection() {
         </div>
 
         <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {categories.map((cat) => (
+          {projectCategories.map((cat) => (
             <button
               key={cat.id}
-              onClick={() => setActiveFilter(cat.id)}
+              onClick={() => handleFilterClick(cat.id)}
               className={clsx(
                 "px-4 py-2 rounded-full text-sm font-medium transition-all",
                 activeFilter === cat.id

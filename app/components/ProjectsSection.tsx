@@ -36,6 +36,7 @@ export default function ProjectsSection({ initialCategoryId = "all" }: ProjectsS
 
   useEffect(() => {
     setActiveFilter(getCategoryIdFromPathname(pathname));
+    setQuery(new URLSearchParams(window.location.search).get("q") || "");
   }, [pathname]);
 
   const terms = normalizeSearch(query).split(/[^\p{L}\p{N}+#.]+/u).filter(Boolean);
@@ -67,10 +68,10 @@ export default function ProjectsSection({ initialCategoryId = "all" }: ProjectsS
     return () => observer.disconnect();
   }, [filteredProjects.length, visibleCount]);
 
-  const handleFilterClick = (categoryId: ProjectCategoryId) => {
+  const handleFilterClick = (categoryId: ProjectCategoryId, search = query) => {
     const nextPath = getCategoryPath(categoryId);
     if (nextPath !== pathname) {
-      router.push(nextPath, { scroll: false });
+      router.push(nextPath + (search.trim() ? `?q=${encodeURIComponent(search.trim())}` : ""), { scroll: false });
     }
   };
 
@@ -131,7 +132,7 @@ export default function ProjectsSection({ initialCategoryId = "all" }: ProjectsS
         )}
 
         {filteredProjects.length === 0 && (
-          <div className="text-center py-16 text-neutral-500 dark:text-neutral-400"><p className="font-semibold text-lg mb-2">No matching projects</p><p>Try a different name or technology, or choose another category.</p><button type="button" className="mt-5 text-blue-600 dark:text-blue-400 font-medium hover:underline" onClick={() => { setQuery(""); handleFilterClick("all"); }}>Clear search and show all projects</button></div>
+          <div className="text-center py-16 text-neutral-500 dark:text-neutral-400"><p className="font-semibold text-lg mb-2">No matching projects</p><p>Try a different name or technology, or choose another category.</p><button type="button" className="mt-5 text-blue-600 dark:text-blue-400 font-medium hover:underline" onClick={() => { setQuery(""); handleFilterClick("all", ""); }}>Clear search and show all projects</button></div>
         )}
       </div>
     </section>

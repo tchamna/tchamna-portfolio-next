@@ -19,7 +19,7 @@ export const projects: Project[] = [
     repoUrl: "https://github.com/tchamna/rag_ai-foundations-demo",
     demoUrl: "https://rag.tchamna.com/",
     featured: true,
-    imageUrl: "/images/demo_rag_20251215.png",
+    imageUrl: "/images/rag-studio-20261023.png",
   },
   {
     title: "Document Intelligence Platform",

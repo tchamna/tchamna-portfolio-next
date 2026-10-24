@@ -11,6 +11,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "Nufi RAG",
+    description:
+      "A Nufi language assistant that searches dictionary and phrasebook evidence with embeddings and FAISS, provides cited explanations and composed translations, and compares three LLMs with query and spending limits.",
+    tags: ["RAG", "FAISS", "NLP", "LLM Comparison", "Nufi"],
+    category: ["nlp", "fullstack", "resulam"],
+    repoUrl: null,
+    demoUrl: "https://rag.tchamna.com/nufi/",
+    featured: true,
+    imageUrl: "/images/nufi-rag-20261023.png",
+  },
+  {
     title: "RAG AI Foundations Demo",
     description:
       "Implemented an end-to-end RAG system: data ingestion, chunking, embeddings, vector store, and evaluation (faithfulness/answer relevance) with prompt variants.",

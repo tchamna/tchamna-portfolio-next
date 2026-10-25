@@ -11,6 +11,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "African Polyglot MCP",
+    description:
+      "An MCP server connecting AI assistants to phrasebooks in 24 African languages, with dedicated Nufi dictionary, grammar and conjugation tools. Combines grounded retrieval, optional semantic RAG, Google sign-in and subscription access; also available on Apify.",
+    tags: ["MCP", "AI Agents", "NLP", "RAG", "Azure"],
+    category: ["ai-agents", "nlp", "fullstack", "resulam"],
+    repoUrl: null,
+    demoUrl: "https://african-lang-mcp.azurewebsites.net/",
+    featured: true,
+    imageUrl: "/images/african-polyglot-mcp.png",
+  },
+  {
     title: "Nufi RAG",
     description:
       "A Nufi language assistant that searches dictionary and phrasebook evidence with embeddings and FAISS, provides cited explanations and composed translations, and compares three LLMs with query and spending limits.",

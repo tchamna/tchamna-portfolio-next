@@ -100,8 +100,7 @@ jobs:
               "docker pull ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}",
               "docker stop ${CONTAINER_NAME} || true",
               "docker rm ${CONTAINER_NAME} || true",
-              "docker run -d --name ${CONTAINER_NAME} -p ${HOST_PORT}:${CONTAINER_PORT} --restart unless-stopped ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}",
-              "docker image prune -af || true"
+              "docker run -d --name ${CONTAINER_NAME} -p ${HOST_PORT}:${CONTAINER_PORT} --restart unless-stopped ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}"
             ]
           }
           EOF

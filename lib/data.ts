@@ -14,6 +14,20 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "LLM Education",
+    description:
+      "An interactive AI learning platform with a real LangGraph agent. Follow planning, parallel tool calls and streamed state updates; inspect evidence, token usage and estimated cost in a deployed full-stack application.",
+    tags: ["AI Agents", "LangGraph", "FastAPI", "MCP", "Azure"],
+    category: ["ai-agents", "nlp", "fullstack", "fine-tuning", "resulam"],
+    repoUrl: null,
+    demoUrl: "https://llm-education-tchamna.azurewebsites.net/#agent",
+    caseStudyUrl: "/projects/llm-education",
+    highlights: ["Real tool execution with visible state and downloadable traces", "Owner-only MCP, prompt-injection checks and usage limits", "Interactive training lessons plus per-call token and cost reporting"],
+    searchKeywords: ["Python", "JavaScript", "HTML", "CSS", "SVG", "Canvas", "LangChain", "OpenAI", "Responses API", "Ollama", "asyncio", "SQLite", "SQL", "SSE", "REST", "OAuth", "PKCE", "Azure App Service", "GitHub Actions", "OIDC", "CI/CD", "pytest", "Node.js", "JSON Schema", "RAG", "retrieval", "observability", "security", "testing", "tokenization", "neural networks"],
+    featured: true,
+    imageUrl: "/images/llm-education.svg",
+  },
+  {
     title: "African Polyglot MCP",
     description:
       "An MCP server connecting AI assistants to phrasebooks in 24 African languages, with dedicated Nufi dictionary, grammar and conjugation tools. Combines grounded retrieval, optional semantic RAG, Google sign-in and subscription access; also available on Apify.",
@@ -23,20 +37,6 @@ export const projects: Project[] = [
     demoUrl: "https://african-lang-mcp.azurewebsites.net/",
     featured: true,
     imageUrl: "/images/african-polyglot-mcp.png",
-  },
-  {
-    title: "LLM Education",
-    description:
-      "An interactive AI learning platform with a real LangGraph agent. Follow planning, parallel tool calls and streamed state updates; inspect evidence, token usage and estimated cost in a deployed full-stack application.",
-    tags: ["AI Agents", "LangGraph", "FastAPI", "MCP", "Azure"],
-    category: ["ai-agents", "nlp", "fullstack", "fine-tuning", "resulam"],
-    repoUrl: "https://github.com/tchamna/llm-education",
-    demoUrl: "https://llm-education-tchamna.azurewebsites.net/#agent",
-    caseStudyUrl: "/projects/llm-education",
-    highlights: ["Real tool execution with visible state and downloadable traces", "Owner-only MCP, prompt-injection checks and usage limits", "Interactive training lessons plus per-call token and cost reporting"],
-    searchKeywords: ["Python", "JavaScript", "HTML", "CSS", "SVG", "Canvas", "LangChain", "OpenAI", "Responses API", "Ollama", "asyncio", "SQLite", "SQL", "SSE", "REST", "OAuth", "PKCE", "Azure App Service", "GitHub Actions", "OIDC", "CI/CD", "pytest", "Node.js", "JSON Schema", "RAG", "retrieval", "observability", "security", "testing", "tokenization", "neural networks"],
-    featured: true,
-    imageUrl: "/images/llm-education.svg",
   },
   {
     title: "RAG AI Foundations Demo",

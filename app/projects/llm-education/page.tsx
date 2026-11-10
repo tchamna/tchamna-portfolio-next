@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowUpRight, Github, Check, Mail } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check, Mail } from "lucide-react";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { profile } from "@/lib/data";
@@ -15,7 +15,6 @@ export const metadata: Metadata = {
 };
 
 const demo = "https://llm-education-tchamna.azurewebsites.net/#agent";
-const repo = "https://github.com/tchamna/llm-education";
 const panel = "rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900";
 
 export default function LlmEducationCaseStudy() {
@@ -32,13 +31,12 @@ export default function LlmEducationCaseStudy() {
             <p className="max-w-3xl text-base sm:text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">I built an interactive learning platform that makes language-model concepts tangible and real agent execution observable—from a request and structured tool calls to merged evidence, a final answer and estimated operating cost.</p>
             <div className="flex flex-wrap gap-3 mt-7">
               <a href={demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-white font-semibold hover:bg-blue-700">Try the live Agent <ArrowUpRight size={18} /></a>
-              <a href={repo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-5 py-3 font-semibold hover:border-blue-500"><Github size={18} /> Explore the source</a>
               <a href={`mailto:${profile.socials.email}?subject=Let%27s%20discuss%20your%20AI%20engineering%20work`} className="inline-flex items-center gap-2 px-3 py-3 text-blue-600 dark:text-blue-300 font-semibold"><Mail size={18} /> Discuss an opportunity</a>
             </div>
           </header>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
-            {[["4", "Interactive learning modules"], ["3 + MCP", "Built-in tools + owner integration"], ["103", "Automated checks at publication"], ["Live", "Hosted app + public source"]].map(([value, label]) => <div key={label} className={`${panel} p-5`}><p className="text-2xl font-bold text-blue-600 dark:text-blue-300 mb-1">{value}</p><p className="text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">{label}</p></div>)}
+            {[["4", "Interactive learning modules"], ["3 + MCP", "Built-in tools + owner integration"], ["103", "Automated checks at publication"], ["Live", "Publicly hosted application"]].map(([value, label]) => <div key={label} className={`${panel} p-5`}><p className="text-2xl font-bold text-blue-600 dark:text-blue-300 mb-1">{value}</p><p className="text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">{label}</p></div>)}
           </div>
           <figure className={`${panel} overflow-hidden mb-16`}>
             <Image src="/images/llm-education.svg" alt="LLM Education architecture illustration showing a request, LLM planner, parallel tools, code-based state review and LLM synthesis" width={1600} height={900} unoptimized priority className="w-full h-auto" />
@@ -71,7 +69,7 @@ export default function LlmEducationCaseStudy() {
           </section>
 
           <section className={`${panel} p-7 sm:p-10 flex flex-col md:flex-row gap-7 md:items-center md:justify-between`}>
-            <div className="max-w-2xl"><p className="text-xs uppercase tracking-widest font-bold text-blue-600 dark:text-blue-300 mb-3">See the work</p><h2 className="text-2xl font-bold mb-3">Explore the product. Inspect the implementation.</h2><p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">Relevant to AI engineering, applied GenAI, Python backend and full-stack AI roles. Try “Can I buy 6 solar kits for $2,400?” to see a database lookup feed a calculation. Language MCP tools require the verified owner account; public research, database and calculator tools remain available.</p></div>
+            <div className="max-w-2xl"><p className="text-xs uppercase tracking-widest font-bold text-blue-600 dark:text-blue-300 mb-3">See the work</p><h2 className="text-2xl font-bold mb-3">Explore the product. Follow the agent.</h2><p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">Relevant to AI engineering, applied GenAI, Python backend and full-stack AI roles. Try “Can I buy 6 solar kits for $2,400?” to see a database lookup feed a calculation. Language MCP tools require the verified owner account; public research, database and calculator tools remain available.</p></div>
             <a href={demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-white font-semibold whitespace-nowrap hover:bg-blue-700">Open live demo <ArrowUpRight size={18} /></a>
           </section>
           <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-5">Implementation and automated-check count verified November 10, 2026. Estimates and educational visualizations are labelled in the application.</p>

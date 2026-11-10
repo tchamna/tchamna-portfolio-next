@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, ArrowUpRight, Check } from "lucide-react";
 import { Project } from "@/lib/data";
 import { motion } from "framer-motion";
 
@@ -46,6 +46,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
       </div>
 
       <div className="p-6 flex flex-col flex-grow">
+        {project.caseStudyUrl && <p className="text-[11px] uppercase tracking-[0.16em] font-bold text-blue-600 dark:text-blue-300 mb-3">AI engineering case study</p>}
         <div className="flex flex-wrap gap-2 mb-3">
           {project.tags.map((tag) => (
             <span
@@ -58,12 +59,15 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         </div>
 
         <h3 className="text-xl font-bold mb-2 group-hover:text-blue-600 dark:text-white transition-colors">
-          {project.title}
+          {project.caseStudyUrl ? <Link href={project.caseStudyUrl}>{project.title}</Link> : project.title}
         </h3>
         
-        <p className="text-neutral-600 dark:text-white text-sm mb-6 flex-grow line-clamp-3">
+        <p className={`text-neutral-600 dark:text-white text-sm mb-5 ${project.highlights ? "" : "flex-grow line-clamp-3"}`}>
           {project.description}
         </p>
+
+        {project.highlights && <ul className="space-y-2 mb-5 text-xs leading-relaxed text-neutral-600 dark:text-neutral-300">{project.highlights.map(point => <li key={point} className="flex gap-2"><Check aria-hidden="true" size={14} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" /><span>{point}</span></li>)}</ul>}
+        {project.caseStudyUrl && <Link href={project.caseStudyUrl} className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 dark:text-blue-300 mb-5 hover:underline">Architecture, stack & transferable skills <ArrowUpRight size={16} aria-hidden="true" /></Link>}
 
         <div className="flex gap-3 mt-auto">
           {project.demoUrl && (

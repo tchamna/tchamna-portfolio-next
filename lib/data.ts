@@ -7,6 +7,9 @@ export interface Project {
   demoUrl: string | null;
   imageUrl: string;
   featured?: boolean;
+  caseStudyUrl?: string;
+  highlights?: string[];
+  searchKeywords?: string[];
 }
 
 export const projects: Project[] = [
@@ -22,15 +25,18 @@ export const projects: Project[] = [
     imageUrl: "/images/african-polyglot-mcp.png",
   },
   {
-    title: "Nufi RAG",
+    title: "LLM Education",
     description:
-      "A Nufi language assistant that searches dictionary and phrasebook evidence with embeddings and FAISS, provides cited explanations and composed translations, and compares three LLMs with query and spending limits.",
-    tags: ["RAG", "FAISS", "NLP", "LLM Comparison", "Nufi"],
-    category: ["nlp", "fullstack", "resulam"],
-    repoUrl: null,
-    demoUrl: "https://rag.tchamna.com/nufi/",
+      "An interactive AI learning platform with a real LangGraph agent. Follow planning, parallel tool calls and streamed state updates; inspect evidence, token usage and estimated cost in a deployed full-stack application.",
+    tags: ["AI Agents", "LangGraph", "FastAPI", "MCP", "Azure"],
+    category: ["ai-agents", "nlp", "fullstack", "fine-tuning", "resulam"],
+    repoUrl: "https://github.com/tchamna/llm-education",
+    demoUrl: "https://llm-education-tchamna.azurewebsites.net/#agent",
+    caseStudyUrl: "/projects/llm-education",
+    highlights: ["Real tool execution with visible state and downloadable traces", "Owner-only MCP, prompt-injection checks and usage limits", "Interactive training lessons plus per-call token and cost reporting"],
+    searchKeywords: ["Python", "JavaScript", "HTML", "CSS", "SVG", "Canvas", "LangChain", "OpenAI", "Responses API", "Ollama", "asyncio", "SQLite", "SQL", "SSE", "REST", "OAuth", "PKCE", "Azure App Service", "GitHub Actions", "OIDC", "CI/CD", "pytest", "Node.js", "JSON Schema", "RAG", "retrieval", "observability", "security", "testing", "tokenization", "neural networks"],
     featured: true,
-    imageUrl: "/images/nufi-rag-20261023.png",
+    imageUrl: "/images/llm-education.svg",
   },
   {
     title: "RAG AI Foundations Demo",

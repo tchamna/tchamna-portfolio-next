@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { profile } from "@/lib/data";
+import Link from "next/link";
 
 export default function SkillsPage() {
   return (
@@ -15,6 +16,13 @@ export default function SkillsPage() {
               {/* <p className="mt-2 text-neutral-600 dark:text-neutral-400">Quick reference: technical skills, platforms, and highlights.</p> */}
             </header>
 
+            <section className="rounded-2xl border border-blue-200 dark:border-blue-900 bg-blue-50 dark:bg-blue-950/25 p-6 mb-8" aria-labelledby="applied-skills-title">
+              <p className="text-xs uppercase tracking-widest font-bold text-blue-600 dark:text-blue-300 mb-2">Skills in practice</p>
+              <h2 id="applied-skills-title" className="text-xl font-bold mb-3">LLM Education — an end-to-end AI engineering case study</h2>
+              <p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-300 mb-4">See how I connect agent orchestration, asynchronous APIs, interactive interfaces, access control, testing and cloud delivery in one deployed application.</p>
+              <ul className="flex flex-wrap gap-2 mb-4">{["LangGraph", "MCP", "FastAPI", "Server-Sent Events", "Google OAuth / PKCE", "Azure", "GitHub Actions"].map(skill => <li key={skill} className="rounded-full px-3 py-1 text-xs font-medium bg-white dark:bg-neutral-900 border border-blue-100 dark:border-blue-900">{skill}</li>)}</ul>
+              <Link href="/projects/llm-education#skills-title" className="text-blue-600 dark:text-blue-300 font-semibold text-sm hover:underline">View the full stack, implementation evidence and transferable skills →</Link>
+            </section>
             <div className="grid md:grid-cols-3 gap-6">
               <main className="md:col-span-2 space-y-6">
                 <div className="bg-white dark:bg-neutral-900 rounded-2xl p-6 border border-neutral-200 dark:border-neutral-800 shadow-sm">

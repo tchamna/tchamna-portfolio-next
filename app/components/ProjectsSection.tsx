@@ -43,7 +43,7 @@ export default function ProjectsSection({ initialCategoryId = "all" }: ProjectsS
   const filteredProjects = projects.filter((project) => {
     if (activeFilter !== "all" && !project.category.includes(activeFilter)) return false;
     const categoryNames = projectCategories.filter(category => project.category.includes(category.id)).map(category => category.label);
-    const searchable = normalizeSearch([project.title, project.description, ...project.tags, ...categoryNames].join(" "));
+    const searchable = normalizeSearch([project.title, project.description, ...project.tags, ...(project.searchKeywords ?? []), ...(project.highlights ?? []), ...categoryNames].join(" "));
     const words = searchable.split(/[^\p{L}\p{N}+#.]+/u);
     return terms.every(term => words.some(word => word.startsWith(term)));
   });

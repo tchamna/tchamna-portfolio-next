@@ -16,7 +16,7 @@ export const projects: Project[] = [
   {
     title: "LLM Education",
     description:
-      "An interactive AI learning platform with a real LangGraph agent. Follow planning, parallel tool calls and streamed state updates; inspect evidence, token usage and estimated cost in a deployed full-stack application.",
+      "I used LangGraph to plan agent steps, call tools in parallel, and stream progress so learners can follow each run.",
     tags: ["AI Agents", "LangGraph", "FastAPI", "MCP", "Azure"],
     category: ["ai-agents", "nlp", "fullstack", "fine-tuning", "resulam"],
     repoUrl: null,
@@ -30,8 +30,8 @@ export const projects: Project[] = [
   {
     title: "African Polyglot MCP",
     description:
-      "An MCP server connecting AI assistants to phrasebooks in 24 African languages, with dedicated Nufi dictionary, grammar and conjugation tools. Combines grounded retrieval, optional semantic RAG, Google sign-in and subscription access; also available on Apify.",
-    tags: ["MCP", "AI Agents", "NLP", "RAG", "Azure"],
+      "I used FastMCP to give AI assistants access to phrasebooks in 24 African languages and to Nufi dictionary, grammar, and conjugation tools.",
+    tags: ["MCP", "FastMCP", "NLP", "RAG", "Azure"],
     category: ["ai-agents", "nlp", "fullstack", "resulam"],
     repoUrl: null,
     demoUrl: "https://african-lang-mcp.azurewebsites.net/",

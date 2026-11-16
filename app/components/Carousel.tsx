@@ -7,11 +7,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
 
 const AUTO_PLAY_MS = 3500;
+const itemsToShow = projects.filter((project) => project.featured);
 
 export default function Carousel() {
-  const items: Project[] = projects;
-  // Filtered list we will display in the carousel (prefer landscape images)
-  const [itemsToShow, setItemsToShow] = useState<Project[]>(items);
   const [index, setIndex] = useState(0);
   const autoplayRef = useRef<number | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -54,11 +52,6 @@ export default function Carousel() {
     return () => window.removeEventListener("keydown", onKey);
   }, [itemsToShow.length]);
 
-  // Show all images in the carousel (no aspect ratio filter)
-  useEffect(() => {
-    setItemsToShow(items);
-  }, [items]);
-
   // touch swipe support
   function onTouchStart(e: React.TouchEvent) {
     touchStartX.current = e.touches[0].clientX;
@@ -88,7 +81,7 @@ export default function Carousel() {
 
   return (
     <section
-      aria-label="Featured projects carousel"
+      aria-label="Featured AI projects carousel"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={onTouchStart}
@@ -100,7 +93,7 @@ export default function Carousel() {
       <div className="rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-lg p-3">
         <div className="flex items-start justify-between mb-2">
           <div>
-            <h3 className="text-base font-semibold dark:text-white">Highlights</h3>
+            <h3 className="text-base font-semibold dark:text-white">AI Highlights</h3>
             <p className="text-xs text-neutral-500 dark:text-white">Click to view demo or code.</p>
           </div>
           <div className="flex items-center gap-2">
@@ -134,7 +127,7 @@ export default function Carousel() {
                 className="absolute inset-0"
               >
                 <Image src={itemsToShow[index].imageUrl} alt={itemsToShow[index].title} fill unoptimized={typeof itemsToShow[index].imageUrl === 'string' && itemsToShow[index].imageUrl.startsWith('http')} sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
               </motion.div>
             </AnimatePresence>
 
@@ -150,7 +143,7 @@ export default function Carousel() {
                 </div>
               </div>
 
-              <p className="mt-1 text-xs text-white/90 line-clamp-1">{itemsToShow[index].description}</p>
+              <p className="mt-1 text-xs text-white/90 line-clamp-2">{itemsToShow[index].description}</p>
               {/* Accessible status for screen readers */}
               <div className="sr-only" aria-live="polite">{itemsToShow[index].title} — {itemsToShow[index].description}</div>
             </div>

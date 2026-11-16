@@ -12,7 +12,7 @@ interface HomePageProps {
 
 export default function HomePage({ categoryId = "all" }: HomePageProps) {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="portfolio-page flex min-h-screen flex-col">
       <Navbar />
       <main className="flex-grow">
         <Hero />

@@ -3,13 +3,14 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { projects, Project } from "@/lib/data";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
 
 const AUTO_PLAY_MS = 3500;
 const itemsToShow = projects.filter((project) => project.featured);
 
 export default function Carousel() {
+  const reduceMotion = useReducedMotion();
   const [index, setIndex] = useState(0);
   const autoplayRef = useRef<number | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -18,7 +19,7 @@ export default function Carousel() {
   const touchDeltaX = useRef<number>(0);
 
   useEffect(() => {
-    if (!paused) {
+    if (!paused && !reduceMotion) {
       autoplayRef.current = window.setInterval(() => {
         // cycle over the filtered list
         setIndex((i) => (i + 1) % (itemsToShow.length || 1));
@@ -29,7 +30,7 @@ export default function Carousel() {
       if (autoplayRef.current) window.clearInterval(autoplayRef.current);
       autoplayRef.current = null;
     };
-  }, [itemsToShow.length, paused]);
+  }, [paused, reduceMotion]);
 
   function goTo(i: number) {
     setIndex((i + (itemsToShow.length || 1)) % (itemsToShow.length || 1));
@@ -79,6 +80,7 @@ export default function Carousel() {
     setPaused(false);
   }
 
+  const project = itemsToShow[index];
   return (
     <section
       aria-label="Featured AI projects carousel"
@@ -87,20 +89,21 @@ export default function Carousel() {
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
-      className="relative w-full max-w-3xl mx-auto px-4 mt-4"
+      className="portfolio-carousel relative w-full max-w-3xl mx-auto px-4 mt-4"
       ref={containerRef}
     >
-      <div className="rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-lg p-3">
-        <div className="flex items-start justify-between mb-2">
+      <div className="carousel-shell rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#263348] dark:text-slate-100 shadow-lg p-3">
+        <div className="carousel-header flex items-start justify-between mb-2">
           <div>
             <h3 className="text-base font-semibold dark:text-white">AI Highlights</h3>
-            <p className="text-xs text-neutral-500 dark:text-white">Click to view demo or code.</p>
+            <p className="text-xs text-neutral-500 dark:hidden">Click to view demo or code.</p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="carousel-controls flex items-center gap-2">
+            <span className="carousel-counter hidden dark:inline">{index + 1} / {itemsToShow.length}</span>
             <button
               aria-label="Previous project"
               onClick={() => setIndex((i) => (i - 1 + (itemsToShow.length || 1)) % (itemsToShow.length || 1))}
-              className="p-2 rounded-lg border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+              className="p-2 rounded-lg border border-neutral-200 dark:border-slate-500 dark:bg-slate-800 dark:text-slate-100 hover:bg-neutral-100 dark:hover:bg-slate-700 transition-colors"
             >
               <ChevronLeft size={18} />
             </button>
@@ -108,14 +111,14 @@ export default function Carousel() {
             <button
               aria-label="Next project"
               onClick={() => setIndex((i) => (i + 1) % (itemsToShow.length || 1))}
-              className="p-2 rounded-lg border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+              className="p-2 rounded-lg border border-neutral-200 dark:border-slate-500 dark:bg-slate-800 dark:text-slate-100 hover:bg-neutral-100 dark:hover:bg-slate-700 transition-colors"
             >
               <ChevronRight size={18} />
             </button>
           </div>
         </div>
 
-        <div className="relative w-full">
+        <div className="relative w-full dark:hidden">
           <div className="min-h-[180px] h-[220px] md:h-[320px] w-full rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-800 relative cursor-pointer" onClick={() => handleClickProject(itemsToShow[index])}>
             <AnimatePresence mode="wait">
               <motion.div
@@ -123,7 +126,7 @@ export default function Carousel() {
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.45 }}
+                transition={{ duration: reduceMotion ? 0 : 0.45 }}
                 className="absolute inset-0"
               >
                 <Image src={itemsToShow[index].imageUrl} alt={itemsToShow[index].title} fill unoptimized={typeof itemsToShow[index].imageUrl === 'string' && itemsToShow[index].imageUrl.startsWith('http')} sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
@@ -152,11 +155,34 @@ export default function Carousel() {
           {/* The small project list has been removed — the carousel now displays only the big looping slide */}
         </div>
 
-          <div className="mt-4 flex items-center justify-center gap-2">
+        <div className="dark-slide hidden" aria-live="polite">
+          <div className="slide-browser">
+            <div className="slide-browser-bar" aria-hidden="true">
+              <span className="browser-dots"><i /><i /><i /></span>
+              <span>{project.title}</span>
+            </div>
+            <Image src={project.imageUrl} alt={project.title} width={960} height={540} unoptimized sizes="(max-width: 899px) 100vw, 50vw" />
+          </div>
+          <div className="slide-copy">
+            <p className="slide-category">{project.category.includes("ai-agents") ? "AI Agents" : "GenAI / RAG"}</p>
+            <h4>{project.title}</h4>
+            <p className="slide-description">{project.description}</p>
+            <div className="slide-tech">
+              {project.tags.slice(0, 3).map((tag) => <span className="tech-chip" data-tech={tag} key={tag}>{tag}</span>)}
+            </div>
+            <div className="slide-links">
+              {project.demoUrl && <a className="dark-primary" href={project.demoUrl} target="_blank" rel="noopener noreferrer">Live demo <ExternalLink size={14} aria-hidden="true" /></a>}
+              {project.repoUrl && <a className="dark-secondary" href={project.repoUrl} target="_blank" rel="noopener noreferrer">Code</a>}
+            </div>
+          </div>
+        </div>
+
+        <div className="carousel-dots mt-4 flex items-center justify-center gap-2">
           {itemsToShow.map((_, i) => (
             <button
               key={i}
               aria-label={`Go to slide ${i + 1}`}
+              aria-current={i === index ? "true" : undefined}
               onClick={() => goTo(i)}
               className={`w-2 h-2 rounded-full ${i === index ? 'bg-blue-600' : 'bg-neutral-200 dark:bg-neutral-700'}`}
             />

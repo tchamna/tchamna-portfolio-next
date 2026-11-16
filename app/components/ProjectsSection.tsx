@@ -108,9 +108,10 @@ export default function ProjectsSection({ initialCategoryId = "all" }: ProjectsS
           {projectCategories.filter((cat) => HOME_FILTERS.includes(cat.id) || cat.id === activeFilter).map((cat) => (
             <button
               key={cat.id}
+              aria-pressed={activeFilter === cat.id}
               onClick={() => handleFilterClick(cat.id)}
               className={clsx(
-                "px-4 py-2 rounded-full text-sm font-medium transition-all",
+                "project-filter px-4 py-2 rounded-full text-sm font-medium transition-all",
                 activeFilter === cat.id
                   ? "bg-blue-600 text-white shadow-md"
                   : "bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-700 border border-neutral-200 dark:border-neutral-700"
@@ -131,7 +132,7 @@ export default function ProjectsSection({ initialCategoryId = "all" }: ProjectsS
         {featured && (
           <h3 className="mb-4 border-t border-neutral-200 pt-5 text-base font-semibold dark:border-neutral-700">More projects</h3>
         )}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <div className="project-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {visibleProjects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
           ))}

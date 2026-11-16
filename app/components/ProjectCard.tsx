@@ -13,9 +13,9 @@ export default function ProjectCard({ project, index, featured = false }: { proj
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={`group flex h-full flex-col overflow-hidden rounded-xl border border-neutral-300 bg-white transition-colors hover:border-blue-500/50 dark:border-neutral-700 dark:bg-neutral-900 ${featured ? "sm:grid sm:grid-cols-2" : ""}`}
+      className={`project-card group flex h-full flex-col overflow-hidden rounded-xl border border-neutral-300 bg-white transition-colors hover:border-blue-500/50 dark:border-neutral-700 dark:bg-[#263348] ${featured ? "sm:grid sm:grid-cols-2" : ""}`}
     >
-      <div className={`relative aspect-video w-full overflow-hidden border-b border-neutral-200 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800 ${featured ? "sm:border-b-0 sm:border-r" : ""}`}>
+      <div className={`project-preview relative aspect-video w-full overflow-hidden border-b border-neutral-200 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800 ${featured ? "sm:border-b-0 sm:border-r" : ""}`}>
         {project.demoUrl || project.repoUrl ? (
           <Link
             href={(project.demoUrl ?? project.repoUrl)!}
@@ -45,12 +45,13 @@ export default function ProjectCard({ project, index, featured = false }: { proj
         )}
       </div>
 
-      <div className="p-4 flex flex-col flex-grow">
+      <div className="project-copy p-4 flex flex-col flex-grow">
         <div className="flex flex-wrap gap-1.5 mb-2">
           {[...project.tags.filter((tag) => tag !== "MCP" || !project.tags.includes("FastMCP")).filter((tag) => tag !== "AI Agents" || !project.tags.includes("LangGraph")).slice(0, project.category.includes("resulam") ? 2 : 3), ...(project.category.includes("resulam") ? ["Resulam"] : [])].map((tag) => (
             <span
               key={tag}
-              className="rounded px-1.5 py-0.5 text-xs text-neutral-600 bg-neutral-100 dark:bg-neutral-800 dark:text-neutral-300"
+              data-tech={tag}
+              className="tech-chip rounded px-1.5 py-0.5 text-xs text-neutral-600 bg-neutral-100 dark:bg-neutral-800 dark:text-neutral-300"
             >
               {tag}
             </span>
@@ -73,7 +74,7 @@ export default function ProjectCard({ project, index, featured = false }: { proj
               href={project.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 inline-flex justify-center items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors"
+              className="project-demo flex-1 inline-flex justify-center items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors"
             >
               <ExternalLink size={16} />
               Demo
@@ -84,7 +85,7 @@ export default function ProjectCard({ project, index, featured = false }: { proj
               href={project.repoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex-1 inline-flex justify-center items-center gap-2 px-4 py-2 border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-sm font-medium rounded-lg transition-colors ${!project.demoUrl ? 'w-full' : ''}`}
+              className={`project-code flex-1 inline-flex justify-center items-center gap-2 px-4 py-2 border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-sm font-medium rounded-lg transition-colors ${!project.demoUrl ? 'w-full' : ''}`}
             >
               <Github size={16} />
               Code

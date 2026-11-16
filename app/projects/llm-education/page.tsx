@@ -57,6 +57,25 @@ export default function LlmEducationCaseStudy() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">{llmEducationCapabilities.map((item, index) => <article key={item.title} className={`${panel} p-6`}><span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-300 text-xs font-bold mb-5">0{index + 1}</span><h3 className="font-bold text-lg leading-snug mb-3">{item.title}</h3><p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">{item.detail}</p></article>)}</div>
           </section>
 
+          <section id="language-research-agent" className="mb-16 scroll-mt-28" aria-labelledby="research-agent-title">
+            <p className="text-xs uppercase tracking-widest font-bold text-blue-600 dark:text-blue-300 mb-3">Local AI agent extension</p>
+            <h2 id="research-agent-title" className="text-3xl font-bold tracking-tight mb-5">Under-Resourced Language Research AI Agent</h2>
+            <p className="text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-4xl mb-6">I built a Python and LangChain agent that discovers candidate datasets within a 24-language catalogue, assesses samples, chooses alternative sources, recovers from failures and checks saved progress against its goal. Its tool selections come from the LLM and change in response to observations.</p>
+            <div className="grid sm:grid-cols-2 gap-4 mb-5">
+              {[
+                ["Assess candidate data", "Inspect declared licenses, field mappings and samples; detect audio filenames, missing text, encoding noise and reference-only entries. Language-code gates reject mismatched sources where an identity profile is configured."],
+                ["Choose another action", "Use candidate working memory and returned evidence to select another source, change a search or reassess a mapping. Repeated-action checks limit unproductive loops while keeping publishers eligible."],
+                ["Recover and resume", "Return actionable HTTP and argument errors to the model. Persist download offsets, preserve source provenance and deduplicate records so collection can resume after interruption."],
+                ["Verify and export", "Check saved usable pairs and source completion before accepting a successful stop. Export CSV and SQLite and refresh a 24-sheet Excel review workbook with sentence pairs only."],
+              ].map(([title, detail]) => <article key={title} className={`${panel} p-6`}><h3 className="font-bold text-lg mb-3">{title}</h3><p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">{detail}</p></article>)}
+            </div>
+            <div className="rounded-xl border border-blue-200 dark:border-blue-900 bg-blue-50 dark:bg-blue-950/30 p-6 text-sm leading-relaxed">
+              <h3 className="font-bold mb-2">Observed decisions in a controlled evaluation</h3>
+              <p className="text-neutral-700 dark:text-neutral-200">The live LLM made 11 tool calls: it identified an audio-file mapping with 0 of 8 usable pairs, selected a second source with 8 of 8, recovered from an injected HTTP 503 and an invalid tool argument, then verified eight saved pairs before stopping. The animated graph and public event trace expose these actions and their evidence.</p>
+              <p className="mt-3 text-neutral-600 dark:text-neutral-300">The challenge uses synthetic sources and a controlled failure, with live model decisions. Test records are isolated from collected datasets. The collector runs locally with Ollama; the hosted demo above provides the general agent experience. Sample hygiene and publisher metadata do not certify translation accuracy or orthography, so uncertain records remain quarantined for review.</p>
+            </div>
+          </section>
+
           <section className="mb-16" aria-labelledby="decisions-title">
             <p className="text-xs uppercase tracking-widest font-bold text-blue-600 dark:text-blue-300 mb-3">Engineering judgment</p><h2 id="decisions-title" className="text-3xl font-bold tracking-tight mb-7">Decisions that matter beyond the demo</h2>
             <div className="space-y-4">{llmEducationDecisions.map((item, index) => <article key={item.problem} className={`${panel} p-6 sm:p-7 grid md:grid-cols-[0.9fr_1.5fr] gap-5`}><div><p className="text-xs text-blue-600 dark:text-blue-300 font-bold mb-2">0{index + 1} / PROBLEM</p><h3 className="font-semibold text-lg leading-snug">{item.problem}</h3></div><div><p className="text-sm leading-relaxed text-neutral-600 dark:text-neutral-300 mb-3">{item.decision}</p><p className="text-sm leading-relaxed font-medium flex gap-2"><Check size={17} aria-hidden="true" className="text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />{item.result}</p></div></article>)}</div>

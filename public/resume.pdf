@@ -1,163 +1,591 @@
 %PDF-1.4
-%“Œ‹ž ReportLab Generated PDF document (opensource)
+%âãÏÓ
 1 0 obj
 <<
-/F1 2 0 R /F2 3 0 R /F3 4 0 R
+/Producer (pypdf)
+/Title (Rodrigue Tchamna AI Engineer Resume)
+/Author (Rodrigue Tchamna)
 >>
 endobj
 2 0 obj
 <<
-/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+/Type /Pages
+/Count 2
+/Kids [ 4 0 R 12 0 R ]
 >>
 endobj
 3 0 obj
 <<
-/BaseFont /Times-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+/Type /Catalog
+/Pages 2 0 R
+/Outlines 15 0 R
 >>
 endobj
 4 0 obj
 <<
-/BaseFont /Times-Roman /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font
+/Contents 5 0 R
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font <<
+/F1 6 0 R
+/F1-0 7 0 R
+/F2 8 0 R
+/F2-0 9 0 R
+/F3 10 0 R
+/F3-0 11 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Parent 2 0 R
+/Annots [ 16 0 R 17 0 R 18 0 R 19 0 R 20 0 R 21 0 R 22 0 R 23 0 R 24 0 R ]
 >>
 endobj
 5 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://portfolio.tchamna.com/)
->> /Border [ 0 0 0 ] /Rect [ 56 683.8 95.116 697 ] /Subtype /Link /Type /Annot
+/Length 5762
 >>
+stream
+q
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 56 735 cm
+Q
+q
+1 0 0 1 56 721 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 3 Tm /F2 11 Tf 14 TL (Rodrigue Tchamna, PhD) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 702 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 3 Tm /F3 11 Tf 14 TL (New Jersey, USA | \(917\) 208-0512 | tchamna@gmail.com) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 683 cm
+q
+0 .352941 .709804 RG
+n 0 1.625 m 39.116 1.625 l S
+n 46.816 1.625 m 87.142 1.625 l S
+n 94.842 1.625 m 127.842 1.625 l S
+BT 1 0 0 1 0 3 Tm 14 TL /F3 11 Tf 0 .352941 .709804 rg (Portfolio) Tj 0 0 0 rg ( | ) Tj 0 .352941 .709804 rg (LinkedIn) Tj 0 0 0 rg ( | ) Tj 0 .352941 .709804 rg (GitHub) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 669 cm
+Q
+q
+1 0 0 1 56 666.6 cm
+q
+1.4 w
+1 J
+0 0 0 RG
+n 0 0 m 500 0 l S
+Q
+Q
+q
+1 0 0 1 56 643.6 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 3 Tm /F2 11 Tf 14 TL (SUMMARY) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 568.6 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 59 Tm /F3 11 Tf 14 TL (AI engineer and data scientist with a PhD in Mechanical Engineering and hands-on delivery of MCP services,) Tj T* (document retrieval applications, and healthcare workflow tools. Builds Python APIs and data pipelines using) Tj T* (Azure, Docker, GitHub Actions, and Hugging Face. Combines production engineering, measurable operational) Tj T* (improvements, and communication with technical and business stakeholders to turn AI capabilities into practical) Tj T* (tools.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 554.6 cm
+Q
+q
+1 0 0 1 56 552.2 cm
+q
+1.4 w
+1 J
+0 0 0 RG
+n 0 0 m 500 0 l S
+Q
+Q
+q
+1 0 0 1 56 529.2 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 3 Tm /F2 11 Tf 14 TL (CORE TECHNICAL SKILLS) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 510.2 cm
+q
+BT 1 0 0 1 0 3 Tm 14 TL /F2 11 Tf 0 0 0 rg (Agentic AI:) Tj /F3 11 Tf ( LangGraph, LangChain, MCP, FastMCP, LLM integration) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 491.2 cm
+q
+BT 1 0 0 1 0 3 Tm 14 TL /F2 11 Tf 0 0 0 rg (Retrieval and machine learning:) Tj /F3 11 Tf ( RAG, FAISS, embeddings, PyTorch, scikit-learn, XGBoost) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 472.2 cm
+q
+BT 1 0 0 1 0 3 Tm 14 TL /F2 11 Tf 0 0 0 rg (Backend and data:) Tj /F3 11 Tf ( Python, FastAPI, SQL, pandas, ETL) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 453.2 cm
+q
+BT 1 0 0 1 0 3 Tm 14 TL /F2 11 Tf 0 0 0 rg (Cloud and delivery:) Tj /F3 11 Tf ( Azure App Service, AWS S3, Docker, GitHub Actions, pytest) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 439.2 cm
+Q
+q
+1 0 0 1 56 436.8 cm
+q
+1.4 w
+1 J
+0 0 0 RG
+n 0 0 m 500 0 l S
+Q
+Q
+q
+1 0 0 1 56 413.8 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 3 Tm /F2 11 Tf 14 TL (SELECTED PROJECTS) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 403.8 cm
+Q
+q
+1 0 0 1 56 389.8 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 3 Tm /F2 11 Tf 14 TL (LLM Education | LangGraph Agent) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 370.8 cm
+q
+0 .352941 .709804 RG
+n 0 1.625 m 47.971 1.625 l S
+n 55.671 1.625 m 103.026 1.625 l S
+BT 1 0 0 1 0 3 Tm 14 TL /F3 11 Tf 0 .352941 .709804 rg (Case study) Tj 0 0 0 rg ( | ) Tj 0 .352941 .709804 rg (Live demo) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 337.8 cm
+q
+BT 1 0 0 1 17 17 Tm /F1 10 Tf 12 TL 0 0 0 rg (\177) Tj ET
+0 0 0 rg
+BT 1 0 0 1 36 17 Tm /F3 11 Tf 14 TL (Orchestrated agent planning and parallel tool calls with LangGraph, then streamed state so learners can) Tj T* (follow each run.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 319.8 cm
+q
+BT 1 0 0 1 17 3 Tm /F1 10 Tf 12 TL 0 0 0 rg (\177) Tj ET
+0 0 0 rg
+BT 1 0 0 1 36 3 Tm /F3 11 Tf 14 TL (Built the FastAPI backend and surfaced tool results, token usage, and estimated cost.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 310.8 cm
+Q
+q
+1 0 0 1 56 296.8 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 3 Tm /F2 11 Tf 14 TL (African Polyglot MCP | FastMCP Server) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 277.8 cm
+q
+0 .352941 .709804 rg
+0 .352941 .709804 RG
+n 0 1.625 m 53.46 1.625 l S
+BT 1 0 0 1 0 3 Tm /F3 11 Tf 14 TL (Live project) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 244.8 cm
+q
+BT 1 0 0 1 17 17 Tm /F1 10 Tf 12 TL 0 0 0 rg (\177) Tj ET
+0 0 0 rg
+BT 1 0 0 1 36 17 Tm /F3 11 Tf 14 TL (Used the MCP Python SDK's FastMCP to expose phrasebook search across 24 African languages and) Tj T* (Nufi dictionary, grammar, and conjugation tools.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 226.8 cm
+q
+BT 1 0 0 1 17 3 Tm /F1 10 Tf 12 TL 0 0 0 rg (\177) Tj ET
+0 0 0 rg
+BT 1 0 0 1 36 3 Tm /F3 11 Tf 14 TL (Deployed on Azure with GitHub Actions and added account-scoped access, lookup caps, and rate limits.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 217.8 cm
+Q
+q
+1 0 0 1 56 203.8 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 3 Tm /F2 11 Tf 14 TL (RAG Studio | Document Retrieval) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 184.8 cm
+q
+0 .352941 .709804 RG
+n 0 1.625 m 47.355 1.625 l S
+n 55.055 1.625 m 88.055 1.625 l S
+BT 1 0 0 1 0 3 Tm 14 TL /F3 11 Tf 0 .352941 .709804 rg (Live demo) Tj 0 0 0 rg ( | ) Tj 0 .352941 .709804 rg (GitHub) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56 151.8 cm
+q
+BT 1 0 0 1 17 17 Tm /F1 10 Tf 12 TL 0 0 0 rg (\177) Tj ET
+0 0 0 rg
+BT 1 0 0 1 36 17 Tm /F3 11 Tf 14 TL (Built document ingestion and FAISS retrieval with source citations. Compared model responses on) Tj T* (shared evidence and added fallback and token-cost limits.) Tj T* ET
+Q
+Q
+ 
+
+Q
+q
+0.0 0.0 612 792 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+BT
+/F2-0 11 Tf
+13.2 TL
+ET
+BT
+1 0 0 1 72 136 Tm
+(Under\055Resourced Language Research AI Agent) Tj
+T*
+ET
+0.12 0.3 0.64 rg
+BT
+/F3-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 72 121 Tm
+(Case study) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F3-0 11 Tf
+13.2 TL
+ET
+BT
+1 0 0 1 80 101 Tm
+(\055) Tj
+T*
+ET
+q
+1 0 0 1 92 85 cm
+q
+0 0 0 rg
+BT
+1 0 0 1 0 17 Tm
+/F3-0 11 Tf
+14 TL
+(Built a tool\055using LLM agent scoped to 24 languages that assesses candidate data\054 selects alternative) Tj
+T*
+(sources\054 recovers from failures and verifies saved progress\056) Tj
+T*
+ET
+Q
+Q
+BT
+/F3-0 11 Tf
+13.2 TL
+ET
+BT
+1 0 0 1 80 69 Tm
+(\055) Tj
+T*
+ET
+q
+1 0 0 1 92 53 cm
+q
+0 0 0 rg
+BT
+1 0 0 1 0 17 Tm
+/F3-0 11 Tf
+14 TL
+(Added resumable downloads\054 provenance and language\055code gates\054 quarantine\054 CSV\057SQLite storage) Tj
+T*
+(and automatically refreshed Excel sheets\073 demonstrated decisions in an animated simulator\056) Tj
+T*
+ET
+Q
+Q
+Q
+
+endstream
 endobj
 6 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://www.linkedin.com/in/rodrigue-shck-tchamna-phd-b1742411/)
->> /Border [ 0 0 0 ] /Rect [ 102.816 683.8 143.142 697 ] /Subtype /Link /Type /Annot
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 7 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/tchamna)
->> /Border [ 0 0 0 ] /Rect [ 150.842 683.8 183.842 697 ] /Subtype /Link /Type /Annot
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 8 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://portfolio.tchamna.com/projects/llm-education)
->> /Border [ 0 0 0 ] /Rect [ 56 371.6 103.971 384.8 ] /Subtype /Link /Type /Annot
+/BaseFont /Times-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 9 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://llm-education-tchamna.azurewebsites.net/#agent)
->> /Border [ 0 0 0 ] /Rect [ 111.671 371.6 159.026 384.8 ] /Subtype /Link /Type /Annot
+/BaseFont /Times-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 10 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://african-lang-mcp.azurewebsites.net/)
->> /Border [ 0 0 0 ] /Rect [ 56 279.425 109.46 293.425 ] /Subtype /Link /Type /Annot
+/BaseFont /Times-Roman
+/Encoding /WinAnsiEncoding
+/Name /F3
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 11 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://rag.tchamna.com/)
->> /Border [ 0 0 0 ] /Rect [ 56 185.6 103.355 198.8 ] /Subtype /Link /Type /Annot
+/BaseFont /Times-Roman
+/Encoding /WinAnsiEncoding
+/Name /F3
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 12 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/tchamna/rag_ai-foundations-demo)
->> /Border [ 0 0 0 ] /Rect [ 111.055 185.6 144.055 198.8 ] /Subtype /Link /Type /Annot
+/Contents 13 0 R
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/Font 14 0 R
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Parent 2 0 R
 >>
 endobj
 13 0 obj
 <<
-/Annots [ 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R 12 0 R ] /Contents 18 0 R /MediaBox [ 0 0 612 792 ] /Parent 17 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
+/Filter [ /ASCII85Decode /FlateDecode ]
+/Length 1507
 >>
+stream
+GauHK?#SIe&:E*5fTuSU+h8lkrM\@@i7)pL9*T.H0.1cd0g5'Z];#f=q=0k7MNY*?Cn[MV%?%+OQ9-n743*Ear.P&f]I%qhUYe7g'Ljo`:tResd-R4@Zc:m^E4`F1UOG;Cil3&FGGE!"ceZWIm!H`rT,N:\rpF8@o+u3-#4>F<'\a-#"PkOm\P4^ra=#c>fV[=?ksZ;@AU5u>ZgjZOn_Majp1!q-c+_Qk=-r@d_0a(:nAG-Un<A]7$7fd.VjuGi=;"b'UFR6qb;<_[oSm`Qd<$[VRP!cimBb5jiT;Q?'EqA&0oC8jbm(dqF7)IsDD+lpqc-D$%X_$6bGe++c5slPhoA14A"_Ph.RO"iWqSq3/HLt_R$,t[_T"+38kDBn,qNb*MO5("[>NWSLX)c4VM/&dl9O5`.kG28U38eVA!JA&]G>!=30"Tc57=b(E>57jkkb.Q-%Nj75Y="29rbLb.Ip_X95/!@0164j8d"lfb0LQ:Y-;Ii)=V\5-"3oNkCpl]@]bnRbmNs.kK@]l\%a&$TaFMNfMl*mRB,GL3ukmj=-rj';WZh,l(uI)S!7LDb?a]@BSC8Z_QK+u^C&<&=s],BE@V[IV:o>CQ;P]?1XAYR\P-MJglT[%A<";=Rd17s%$*;d[suie3,%;i2#]U+&$oS[n,`3'SJkK!Y&P]<\>*NtY.M)uG'e/^\U0mu,$n[`O^t.A8,60t=2]10.dIN].kJ0ZU(q0+/\+h22<B;h[GBi*"ZE;]Y>i1f;<P%hF&Z7qbQ,-S[;_tq8t;b3``$$?g[]..Xs"<'fR-'(_)oCO1hr(Sa;9hPEg/*C(AGH0l7!%r]E2X?`5"lH.GK_K@@XPgDD7lTjEVV;Y&NXU(1oF*676>QnCG*!`o[Gl!BjsrXQtX>B@oH&PFY#:Pb.fGMCa=2DB3koeJF5t?*d)KLNdPA.Fu"dJh[%^2VRE0\]*?SpnbIHdMnhdXK]?l6%Iil-GDJJBiBkh6HFSuHH//Rk_/lU!HV6J[g"QE,7HdC\T\pl7:r>Kfhu+>1W-^[r-+R*s4Y2X:3^$\W.0\X&.(Vkr/i]`:=5lalQW_U\kl9[0W5-b7F1T+Ce_LN^O<nL.HaIU^)sW7EEeoSn.0.+Il5j^c8%iTV"B&HO]#ASD_:!c,^/`p_>?-B;@@\R.ct\4Jp\H%3RbmQb$4tspJuWch!`sLPPf;G%(^2)mT/bKqS5P.bg9;_R@>;<ku8O,f\%3MfWWQ,pVu6r_GYNBP%6I1aK72T]]8g-?]K3Om-8iTDHKae=-c=tPK;NfG#DKEWmf"f=/=S7Y"1K6O+-6QViA0`k_,:pbPR4Fm-=1ZD:68)MZ%&+1=/5S?CT(%Z:Qtl,U1-G:%$kU^oW%>?B[0Ebf:/Ce?a*I4BqQ-;,U,W.\%1:GGSHljVeS\;f]R>2JKIKe]$ZADD+U$UZXp&O*QChFG960edTUCC6Rq<-P<;99iR(.%kal6D:7eDpt23*@m6'f+.TM8<3u0=ASQStf)I$_~>
+endstream
 endobj
 14 0 obj
 <<
-/Contents 19 0 R /MediaBox [ 0 0 612 792 ] /Parent 17 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
+/F1 6 0 R
+/F2 8 0 R
+/F3 10 0 R
 >>
 endobj
 15 0 obj
 <<
-/PageMode /UseNone /Pages 17 0 R /Type /Catalog
 >>
 endobj
 16 0 obj
 <<
-/Author (Rodrigue Tchamna) /CreationDate (D:20261116120559-05'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20261116120559-05'00') /Producer (ReportLab PDF Library - \(opensource\)) 
-  /Subject (\(unspecified\)) /Title (Rodrigue Tchamna, PhD | AI Engineer and Data Scientist) /Trapped /False
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057portfolio\056tchamna\056com\057)
+>>
+/Border [ 0 0 0 ]
+/Rect [ 56 683.8 95.116 697 ]
+/Subtype /Link
+/Type /Annot
 >>
 endobj
 17 0 obj
 <<
-/Count 2 /Kids [ 13 0 R 14 0 R ] /Type /Pages
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057www\056linkedin\056com\057in\057rodrigue\055shck\055tchamna\055phd\055b1742411\057)
+>>
+/Border [ 0 0 0 ]
+/Rect [ 102.816 683.8 143.142 697 ]
+/Subtype /Link
+/Type /Annot
 >>
 endobj
 18 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 1851
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057github\056com\057tchamna)
 >>
-stream
-GauHK?$"^h'Rf.Ggp`H,XQj$:Vd`=?&tBLUdrm&kMmS;"-*=J9m*bEbn(lM!fO-_J1DtOU[&i\eHZdZF7j])JA#d:0!cYl*hu5IKZs^9Be'T1<c![jBII!<o:=fU*G&_Tldt:ZDPcN\fL0>6f%tg9eHlH)m`jWZ>X4T1JJ&+LgU6<ACfTIL+)U,Z,Dd`5Q<kldu596;(=Pn+UIK,NBoG6:\Ojfj*T9ge4K.m1sl$ms\Q8(?T>YOl%M@.0A;*nBd#<_7&i=5,XL2OWScnRi\NT%Zl?uajmjYkr$>Y)XOlDEgrQSC&]9?5Kdm8<uf?T0"khN";)&)*i_+,>>b/[l]I?)>,.r>:oXTKhV6f^P8JQ!@6Tk[XVbb,N!b/A7q>1k!qLQ`PF9XuhR*%8ZVYkBXX?("^D']>a6qePEe0Xaqd<%Ja@si]+#L2Z]N!MTa=I=/3`!?%?4!clLd[T'X5>'PJDiPYqN-%3Zu#JNR<s/Qc>p/M"7pAEO%fiJM(hVCWiE9^8*L)QEUQ4j;5s$6bD^%2Ct_)n6g4+fF=S"Z4gLo_jjVAV0G<cpBF4K@*5U`>H$k4O(8`*[Pg2%>^ZrbJj-$k-n0+*p5SSQRiVfR.#naSi<*6o0)Z'AU&YrF!u*_et+nuY7srg$Q`POTg@3/0FA:bHs9(&biV\6:`[P<=fXNMi*iVY[=uJ')C1R.V',)k!mdfAfLaj>a:c/UL<;XEpdj/89^=71_A68"Wgn+I>!f*3%XC@Cl'B@5l2i:A74Bq:.0Ln@CDO7.+YK)?2jkco/N>`!W_mE,\5(R'8*cIY]r&?&BDV?Ni.L/5Ip>ZT2&X1-0HH3dY^A[+c'Fn,Qpu/Bj'#s#>16$Z.$?_6?m1#$dJ$W(_i1D=V'+Gl;]j%a_GX+:YD2G+([AnSFsW&AUZu!++`rJ$9+W`LI)'nr8?g'^J=$t3@`ode?ApKKhe9T+C-[t?%7Ap*h)=/m\-Oc)jRG)Xc;XoUrk:MX4>/aHqpnDjT+e"86>gI]%(.9p<D@#*#0Tdu%5PSI+Q1@VeqqPW?\3#4o<QA8CXOpiV$f!"10@R<V8;B!,qSH([3F??oSG'O2%bl"EOrl=@?,%\!M2/4-F:g=27\85io<,ueB'>`W6]^mD@_IT3Ere$Jc],ThVFc;T_R/n`:f2hM,.4ka4H*\H-`G!Y3r\jfI*&Q@<k)QW/O;C;5;<RpIqK*6a7:<hO1_;2`Vtq1O])"b)7'j.^(.lma(lAqS!;q;,9=sgM9/=Du^tW.^5UDeL7^l4qu(IP,?K7c\N]`9Ofr/E<aC%?;7U*d4D^_`KCL!&e'B`X2#)49"O'p$V7=bIIqc)QrB5.&7sQUX))j%\fCFEX)ZjR95d\KF;h!-omsR1^u(eH#cgi/R[::LmKLWOBK35@eYpN/Z:*5!5f%jm6fTHJXJ,A$\rATLm6D#"*q,hj(Wq?c2+(&o*#2b(/DkrIFGSmI-DFO&h(1W;\mbltV6;`>'ElU!IPs2MkON=s436^;NcTL9rg18L.Cq50DoPWeZE6B'=EAqNVO&F+J-:J!T<fMNSdQ/].^;d6ASimdU"h=-R@5fti0tj8N$KR@0okMM19(KLBmXJqhTr%B"jLMj__Oe>Y/[G=L\kR[,soIF8k]fc1+gfB!.D2b7*ho"N--X,l#CLR/-Q>hQE]A*KMDJ'K8^TU9/KYQ6uciZH#qBGWjL?Y$]-l_ShmTef6oW_N-5Nb]a"e/YF/Jd#LAHX7lFZEB@F,KkOo&l8!K6ACcpB)apB0&<2qk#Gpre%!@t1Z9D)nP,7Q^fiTLZGMJ'GZN8/dVI_JfDkR@o6MRW&dGD#K_NWcbcK`=_\r$.1.^&J,/W5Da~>endstream
+/Border [ 0 0 0 ]
+/Rect [ 150.842 683.8 183.842 697 ]
+/Subtype /Link
+/Type /Annot
+>>
 endobj
 19 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 1507
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057portfolio\056tchamna\056com\057projects\057llm\055education)
 >>
-stream
-GauHK?#SIe&:E*5fTuSU+h8lkrM\@@i7)pL9*T.H0.1cd0g5'Z];#f=q=0k7MNY*?Cn[MV%?%+OQ9-n743*Ear.P&f]I%qhUYe7g'Ljo`:tResd-R4@Zc:m^E4`F1UOG;Cil3&FGGE!"ceZWIm!H`rT,N:\rpF8@o+u3-#4>F<'\a-#"PkOm\P4^ra=#c>fV[=?ksZ;@AU5u>ZgjZOn_Majp1!q-c+_Qk=-r@d_0a(:nAG-Un<A]7$7fd.VjuGi=;"b'UFR6qb;<_[oSm`Qd<$[VRP!cimBb5jiT;Q?'EqA&0oC8jbm(dqF7)IsDD+lpqc-D$%X_$6bGe++c5slPhoA14A"_Ph.RO"iWqSq3/HLt_R$,t[_T"+38kDBn,qNb*MO5("[>NWSLX)c4VM/&dl9O5`.kG28U38eVA!JA&]G>!=30"Tc57=b(E>57jkkb.Q-%Nj75Y="29rbLb.Ip_X95/!@0164j8d"lfb0LQ:Y-;Ii)=V\5-"3oNkCpl]@]bnRbmNs.kK@]l\%a&$TaFMNfMl*mRB,GL3ukmj=-rj';WZh,l(uI)S!7LDb?a]@BSC8Z_QK+u^C&<&=s],BE@V[IV:o>CQ;P]?1XAYR\P-MJglT[%A<";=Rd17s%$*;d[suie3,%;i2#]U+&$oS[n,`3'SJkK!Y&P]<\>*NtY.M)uG'e/^\U0mu,$n[`O^t.A8,60t=2]10.dIN].kJ0ZU(q0+/\+h22<B;h[GBi*"ZE;]Y>i1f;<P%hF&Z7qbQ,-S[;_tq8t;b3``$$?g[]..Xs"<'fR-'(_)oCO1hr(Sa;9hPEg/*C(AGH0l7!%r]E2X?`5"lH.GK_K@@XPgDD7lTjEVV;Y&NXU(1oF*676>QnCG*!`o[Gl!BjsrXQtX>B@oH&PFY#:Pb.fGMCa=2DB3koeJF5t?*d)KLNdPA.Fu"dJh[%^2VRE0\]*?SpnbIHdMnhdXK]?l6%Iil-GDJJBiBkh6HFSuHH//Rk_/lU!HV6J[g"QE,7HdC\T\pl7:r>Kfhu+>1W-^[r-+R*s4Y2X:3^$\W.0\X&.(Vkr/i]`:=5lalQW_U\kl9[0W5-b7F1T+Ce_LN^O<nL.HaIU^)sW7EEeoSn.0.+Il5j^c8%iTV"B&HO]#ASD_:!c,^/`p_>?-B;@@\R.ct\4Jp\H%3RbmQb$4tspJuWch!`sLPPf;G%(^2)mT/bKqS5P.bg9;_R@>;<ku8O,f\%3MfWWQ,pVu6r_GYNBP%6I1aK72T]]8g-?]K3Om-8iTDHKae=-c=tPK;NfG#DKEWmf"f=/=S7Y"1K6O+-6QViA0`k_,:pbPR4Fm-=1ZD:68)MZ%&+1=/5S?CT(%Z:Qtl,U1-G:%$kU^oW%>?B[0Ebf:/Ce?a*I4BqQ-;,U,W.\%1:GGSHljVeS\;f]R>2JKIKe]$ZADD+U$UZXp&O*QChFG960edTUCC6Rq<-P<;99iR(.%kal6D:7eDpt23*@m6'f+.TM8<3u0=ASQStf)I$_~>endstream
+/Border [ 0 0 0 ]
+/Rect [ 56 371.6 103.971 384.8 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+20 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057llm\055education\055tchamna\056azurewebsites\056net\057\043agent)
+>>
+/Border [ 0 0 0 ]
+/Rect [ 111.671 371.6 159.026 384.8 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+21 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057african\055lang\055mcp\056azurewebsites\056net\057)
+>>
+/Border [ 0 0 0 ]
+/Rect [ 56 279.425 109.46 293.425 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+22 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057rag\056tchamna\056com\057)
+>>
+/Border [ 0 0 0 ]
+/Rect [ 56 185.6 103.355 198.8 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+23 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057github\056com\057tchamna\057rag\137ai\055foundations\055demo)
+>>
+/Border [ 0 0 0 ]
+/Rect [ 111.055 185.6 144.055 198.8 ]
+/Subtype /Link
+/Type /Annot
+>>
+endobj
+24 0 obj
+<<
+/A <<
+/S /URI
+/Type /Action
+/URI (https\072\057\057portfolio\056tchamna\056com\057projects\057llm\055education\043language\055research\055agent)
+>>
+/Border [ 0 0 0 ]
+/Rect [ 72 119 119 131 ]
+/Subtype /Link
+/Type /Annot
+>>
 endobj
 xref
-0 20
+0 25
 0000000000 65535 f 
-0000000061 00000 n 
-0000000112 00000 n 
-0000000219 00000 n 
-0000000327 00000 n 
-0000000436 00000 n 
-0000000602 00000 n 
-0000000807 00000 n 
-0000000975 00000 n 
-0000001166 00000 n 
-0000001364 00000 n 
-0000001550 00000 n 
-0000001714 00000 n 
-0000001909 00000 n 
-0000002168 00000 n 
-0000002364 00000 n 
-0000002434 00000 n 
-0000002759 00000 n 
-0000002827 00000 n 
-0000004770 00000 n 
+0000000015 00000 n 
+0000000126 00000 n 
+0000000192 00000 n 
+0000000258 00000 n 
+0000000590 00000 n 
+0000006404 00000 n 
+0000006511 00000 n 
+0000006618 00000 n 
+0000006726 00000 n 
+0000006834 00000 n 
+0000006944 00000 n 
+0000007054 00000 n 
+0000007246 00000 n 
+0000008846 00000 n 
+0000008899 00000 n 
+0000008921 00000 n 
+0000009106 00000 n 
+0000009348 00000 n 
+0000009532 00000 n 
+0000009748 00000 n 
+0000009974 00000 n 
+0000010184 00000 n 
+0000010366 00000 n 
+0000010588 00000 n 
 trailer
 <<
-/ID 
-[<2e1c3c4ecc24f8f9e7417fd66da30498><2e1c3c4ecc24f8f9e7417fd66da30498>]
-% ReportLab generated PDF document -- digest (opensource)
-
-/Info 16 0 R
-/Root 15 0 R
-/Size 20
+/Size 25
+/Root 3 0 R
+/Info 1 0 R
 >>
 startxref
-6369
+10829
 %%EOF
